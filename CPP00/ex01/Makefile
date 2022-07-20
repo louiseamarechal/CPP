@@ -5,23 +5,26 @@
 #                                                     +:+ +:+         +:+      #
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/19 17:02:15 by lmarecha          #+#    #+#              #
-#    Updated: 2022/07/20 11:20:23 by lmarecha         ###   ########.fr        #
+#    Created: 2022/07/20 11:15:12 by lmarecha          #+#    #+#              #
+#    Updated: 2022/07/20 11:25:50 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME =		phonebook
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CC =		c++
+CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
-SRC = megaphone.cpp
+SRC =		main.cpp \
+			PhoneBook.class.cpp
+
+HEADER =	PhoneBook.class.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-all: $(NAME)
+all : $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME) : $(OBJ) $(HEADER)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean :
@@ -30,7 +33,7 @@ clean :
 fclean : clean
 	/bin/rm -f $(NAME)
 
-%.o:%.cpp
+%.o:%.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 re: fclean all
