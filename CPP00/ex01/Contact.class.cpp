@@ -6,11 +6,13 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 11:20:07 by louisea           #+#    #+#             */
-/*   Updated: 2022/07/28 12:16:52 by louisea          ###   ########.fr       */
+/*   Updated: 2022/07/30 11:18:26 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
+#include <string>
+#include <cstring>
 
 Contact::Contact(void) {
 	return ;

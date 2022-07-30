@@ -6,7 +6,7 @@
 int	main(void)
 {
 	PhoneBook	repertoire;
-	Contact	Contact;
+	Contact		Contact;
 	std::string	answer;
 
 	std::cout << " Please enter ADD, SEARCH or EXIT" << std::endl;
