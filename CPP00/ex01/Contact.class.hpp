@@ -6,7 +6,7 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 18:40:18 by louisea           #+#    #+#             */
-/*   Updated: 2022/07/20 18:47:12 by louisea          ###   ########.fr       */
+/*   Updated: 2022/07/28 12:29:18 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,17 @@ public :
 
 private :
 
-	char	*first_name;
-	char	*last_name;
-	char	*nickname;
-	char	*phone_number;
-	char	*darkest_secret;
+	void		_setContact(void);
+	void		_setFirstName(void);
+	void		_setLastName(void);
+	void		_setNickName(void);
+	void		_setPhoneNumber(void);
+	void		_setDarkestSecret(void);
+	std::string	_firstName;
+	std::string	_lastName;
+	std::string	_nickName;
+	std::string	_phoneNumber;
+	std::string	_darkestSecret;
 }
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:06:32 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/07/20 18:39:47 by louisea          ###   ########.fr       */
+/*   Updated: 2022/07/28 11:41:51 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public :
 
 private :
 
-	char	contacts[8];
+	std::string	_contacts[8];
 
 };
 
