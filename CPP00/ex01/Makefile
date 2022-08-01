@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/20 11:15:12 by lmarecha          #+#    #+#              #
-#    Updated: 2022/07/20 11:25:50 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/08/01 11:48:33 by louisea          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,11 @@ CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 SRC =		main.cpp \
-			PhoneBook.class.cpp
+			PhoneBook.class.cpp \
+			Contact.class.cpp
 
-HEADER =	PhoneBook.class.hpp
+HEADER =	PhoneBook.class.hpp \
+			Contact.class.hpp
 
 OBJ = $(SRC:.cpp=.o)
 

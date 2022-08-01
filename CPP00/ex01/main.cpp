@@ -2,6 +2,7 @@
 #include <string>
 #include <cstring>
 #include "PhoneBook.class.hpp"
+#include "Contact.class.hpp"
 
 int	main(void)
 {

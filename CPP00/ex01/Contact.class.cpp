@@ -6,7 +6,7 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 11:20:07 by louisea           #+#    #+#             */
-/*   Updated: 2022/07/30 11:18:26 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/01 11:13:11 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #include <cstring>
 
 Contact::Contact(void) {
+	this._firstName = "";
+	this._lastName = "";
+	this._nickName = "";
+	this._phoneNumber = "";
+	this._darkestSecret = "";
 	return ;
 }
 
@@ -22,7 +27,7 @@ Contact::~Contact(void) {
 	return ;
 }
 
-void	Contact::_setContact(void) {
+void	Contact::setContact(void) {
 	this.setFirstName();
 	this.setLastName();
 	this.setNickName();
@@ -78,4 +83,24 @@ void	Contact::_setDarkestSecret(void) {
 	if (!std::getline(std::cin, darkestSecret))
 		exit(1);
 	this._darkestSecret = darkestSecret;
+}
+
+std::string	getFirstName(void) {
+	return this.firstName;
+}
+
+std::string	getLastName(void) {
+	return this.lastName;
+}
+
+std::string	getNickName(void) {
+	return this.nickName;
+}
+
+std::string	getPhoneNumber(void) {
+	return this.phoneNumber;
+}
+
+std::string	getDarkestSecret(void) {
+	return this.darkestSecret;
 }

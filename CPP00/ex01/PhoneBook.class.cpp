@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:06:34 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/07/28 10:26:38 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/01 11:10:46 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ PhoneBook::PhoneBook( void ) {
 // dans la classe PhoneBook je veux acceder a la fonction ~PhoneBook()
 PhoneBook::~PhoneBook( void ) {
 
-	std::cout << "Deconstructor called" << std::endl;
+	std::cout << "No more PhoneBook" << std::endl;
 	return;
 }
 
