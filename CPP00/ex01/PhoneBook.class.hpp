@@ -6,12 +6,14 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:06:32 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/07/28 11:41:51 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/02 13:00:07 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef PHONEBOOK_CLASS_H
 # define PHONEBOOK_CLASS_H
+
+# include "Contact.class.hpp"
 
 class PhoneBook {
 
@@ -19,10 +21,15 @@ public :
 
 	PhoneBook( void );
 	~PhoneBook( void );
+	void	setContact(void);
+	void	searchContact(void);
+	void	ContactDetails(int index);
+	void	ContactShortList(void);
 
 private :
 
-	std::string	_contacts[8];
+	int		_contactNumber;
+	Contact	_contacts[8];
 
 };
 
