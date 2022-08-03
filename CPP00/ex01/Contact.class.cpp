@@ -6,18 +6,18 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 11:20:07 by louisea           #+#    #+#             */
-/*   Updated: 2022/08/02 12:56:39 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/03 12:22:40 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
 
 Contact::Contact(void) {
-	this->_firstName = "";
-	this->_lastName = "";
-	this->_nickName = "";
-	this->_phoneNumber = "";
-	this->_darkestSecret = "";
+	// this->_firstName = "";
+	// this->_lastName = "";
+	// this->_nickName = "";
+	// this->_phoneNumber = "";
+	// this->_darkestSecret = "";
 	return ;
 }
 

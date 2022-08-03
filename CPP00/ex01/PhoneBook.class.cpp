@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:06:34 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/03 11:13:20 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/03 12:28:55 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ PhoneBook::PhoneBook( void ) : _contactNumber(0) {
 // dans la classe PhoneBook je veux acceder a la fonction ~PhoneBook()
 PhoneBook::~PhoneBook( void ) {
 
-	std::cout << "No more PhoneBook" << std::endl;
+	std::cout << "Thanks for using your PhoneBook" << std::endl;
 	return;
 }
 
-void	PhoneBook::setContact(void) {
+void	PhoneBook::addContact(void) {
 	Contact	*c;
 
 	c = &this->_contacts[this->_contactNumber % 8];
@@ -41,6 +41,8 @@ void	PhoneBook::setContact(void) {
 	c->setPhoneNumber();
 	c->setDarkestSecret();
 	this->_contactNumber++;
+	std::cout << "Contact added !" << std::endl;
+	std::cout << "You now have " << this->_contactNumber << " contact(s) saved !" << std::endl;
 }
 
 
@@ -60,7 +62,7 @@ void	PhoneBook::ContactShortList(void) {
 	std::string	nickName;
 
 	index = 0;
-	while (index < 8)
+	while (index < this->_contactNumber)
 	{
 		firstName = this->_contacts[index].getFirstName();
 		if (firstName.length() > 10)
@@ -91,8 +93,10 @@ void	PhoneBook::searchContact(void) {
 		std::cout << "Enter contact index to see details" << std::endl;
 		if (!std::getline(std::cin, answer))
 			exit(1);
-		if (stoi(answer, nullptr, 10) >= 0 && stoi(answer, nullptr, 10) < 8)
+		if (answer.length() == 1 && answer[0] >= '0' && answer[0] < '0' + this->_contactNumber)
 			ContactDetails(stoi(answer, nullptr, 10));
+		else
+			std::cout << "Wrong input" << std::endl;
 	}
 	else
 		std::cout << "You don't have any contacts yet !" << std::endl;

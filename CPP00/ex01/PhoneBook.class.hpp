@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:06:32 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/02 13:00:07 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/03 12:20:59 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ public :
 
 	PhoneBook( void );
 	~PhoneBook( void );
-	void	setContact(void);
+	void	addContact(void);
 	void	searchContact(void);
 	void	ContactDetails(int index);
 	void	ContactShortList(void);
