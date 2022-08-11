@@ -9,7 +9,6 @@ int	main(void)
 	PhoneBook	repertoire;
 	std::string	answer;
 
-
 	std::cout << "Welcome to your very own PhoneBook !" << std::endl;
 	while (1)
 	{

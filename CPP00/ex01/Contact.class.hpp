@@ -6,7 +6,7 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 18:40:18 by louisea           #+#    #+#             */
-/*   Updated: 2022/08/02 12:57:04 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/11 16:22:11 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <cstring>
 #include <iostream>
+#include <stdlib.h>
 
 class Contact {
 
@@ -23,11 +24,11 @@ public :
 
 	Contact( void );
 	~Contact( void );
-	std::string	getFirstName(void);
-	std::string	getLastName(void);
-	std::string	getNickName(void);
-	std::string	getPhoneNumber(void);
-	std::string	getDarkestSecret(void);
+	std::string	getFirstName(void) const;
+	std::string	getLastName(void) const;
+	std::string	getNickName(void) const;
+	std::string	getPhoneNumber(void) const;
+	std::string	getDarkestSecret(void) const;
 	void		setFirstName(void);
 	void		setLastName(void);
 	void		setNickName(void);

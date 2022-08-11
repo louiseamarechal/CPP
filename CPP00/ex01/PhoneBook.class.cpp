@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:06:34 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/03 12:28:55 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/11 16:18:34 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	PhoneBook::searchContact(void) {
 		if (!std::getline(std::cin, answer))
 			exit(1);
 		if (answer.length() == 1 && answer[0] >= '0' && answer[0] < '0' + this->_contactNumber)
-			ContactDetails(stoi(answer, nullptr, 10));
+			ContactDetails(std::atoi(answer.c_str()));
 		else
 			std::cout << "Wrong input" << std::endl;
 	}

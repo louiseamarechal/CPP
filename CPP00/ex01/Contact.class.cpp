@@ -6,18 +6,17 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 11:20:07 by louisea           #+#    #+#             */
-/*   Updated: 2022/08/03 12:22:40 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/11 16:39:16 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
 
-Contact::Contact(void) {
-	// this->_firstName = "";
-	// this->_lastName = "";
-	// this->_nickName = "";
-	// this->_phoneNumber = "";
-	// this->_darkestSecret = "";
+Contact::Contact(void) : _firstName(""),
+						_lastName(""),
+						_nickName(""),
+						_phoneNumber(""),
+						_darkestSecret("") {
 	return ;
 }
 
@@ -75,22 +74,22 @@ void	Contact::setDarkestSecret(void) {
 	this->_darkestSecret = darkestSecret;
 }
 
-std::string	Contact::getFirstName(void) {
+std::string	Contact::getFirstName(void) const {
 	return this->_firstName;
 }
 
-std::string	Contact::getLastName(void) {
+std::string	Contact::getLastName(void) const {
 	return this->_lastName;
 }
 
-std::string	Contact::getNickName(void) {
+std::string	Contact::getNickName(void) const {
 	return this->_nickName;
 }
 
-std::string	Contact::getPhoneNumber(void) {
+std::string	Contact::getPhoneNumber(void) const {
 	return this->_phoneNumber;
 }
 
-std::string	Contact::getDarkestSecret(void) {
+std::string	Contact::getDarkestSecret(void) const {
 	return this->_darkestSecret;
 }
