@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:43:29 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/11 18:25:10 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/12 14:03:51 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Zombie::Zombie(void) : _name("") {
 }
 
 Zombie::~Zombie(void) {
+	std::cout << this->_name << " is dead" << std::endl;
 	return;
 }
 
