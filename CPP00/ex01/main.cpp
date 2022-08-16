@@ -12,7 +12,7 @@ int	main(void)
 	std::cout << "Welcome to your very own PhoneBook !" << std::endl;
 	while (1)
 	{
-		std::cout << "Please enter ADD, SEARCH or EXIT" << std::endl;
+		std::cout << "Please enter ADD, SEARCH or EXIT : ";
 		if (!std::getline(std::cin, answer))
 			exit(1);
 		if (answer == "ADD")

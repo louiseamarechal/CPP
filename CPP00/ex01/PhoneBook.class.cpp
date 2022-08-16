@@ -6,21 +6,14 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 11:06:34 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/11 16:18:34 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/16 16:29:30 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "PhoneBook.class.hpp"
 
 // dans la classe PhoneBook je veux acceder a la fonction PhoneBook()
 PhoneBook::PhoneBook( void ) : _contactNumber(0) {
-
-	// std::cout << "Constructor called" << std::endl;
-	// this->contact = 42;
-	// std::cout << "this->contact = " << this->contact << std::endl;
-	// this->define_contact();
-
 	return;
 }
 
@@ -42,11 +35,15 @@ void	PhoneBook::addContact(void) {
 	c->setDarkestSecret();
 	this->_contactNumber++;
 	std::cout << "Contact added !" << std::endl;
-	std::cout << "You now have " << this->_contactNumber << " contact(s) saved !" << std::endl;
 }
 
 
-void	PhoneBook::ContactDetails(int index) {
+void	PhoneBook::_contactDetails(int index) {
+	if (index > 7)
+	{
+		std::cout << "Wrong input" << std::endl;
+		return ;
+	}
 	std::cout << this->_contacts[index].getFirstName() << std::endl;
 	std::cout << this->_contacts[index].getLastName() << std::endl;
 	std::cout << this->_contacts[index].getNickName() << std::endl;
@@ -55,30 +52,24 @@ void	PhoneBook::ContactDetails(int index) {
 
 }
 
-void	PhoneBook::ContactShortList(void) {
+void	PhoneBook::_contactShortList(void) {
 	int			index;
 	std::string	firstName;
 	std::string	lastName;
 	std::string	nickName;
 
 	index = 0;
-	while (index < this->_contactNumber)
+	while (index < this->_contactNumber && index < 8)
 	{
-		firstName = this->_contacts[index].getFirstName();
-		if (firstName.length() > 10)
-			firstName = firstName.substr(0, 9).insert(9, ".");
-		lastName = this->_contacts[index].getLastName();
-		if (lastName.length() > 10)
-			lastName = lastName.substr(0, 9).insert(9, ".");
-		nickName = this->_contacts[index].getNickName();
-		if (nickName.length() > 10)
-			nickName = nickName.substr(0, 9).insert(9, ".");
+		firstName = truncate(this->_contacts[index].getFirstName());
+		lastName = truncate(this->_contacts[index].getLastName());
+		nickName = truncate(this->_contacts[index].getNickName());
 		if (firstName[0] != '\0')
 		{
-			std::cout << index;
-			std::cout << " | " <<  firstName;
-			std::cout << " | " << lastName;
-			std::cout << " | " << nickName << std::endl;
+			std::cout << index << "|";
+			std::cout << std::setw(10) << firstName << "|";
+			std::cout << std::setw(10) << lastName << "|";
+			std::cout << std::setw(10) << nickName << std::endl;
 		}
 		index++;
 	}
@@ -89,20 +80,15 @@ void	PhoneBook::searchContact(void) {
 
 	if (this->_contacts[0].getFirstName() != "")
 	{
-		ContactShortList();
+		_contactShortList();
 		std::cout << "Enter contact index to see details" << std::endl;
 		if (!std::getline(std::cin, answer))
 			exit(1);
 		if (answer.length() == 1 && answer[0] >= '0' && answer[0] < '0' + this->_contactNumber)
-			ContactDetails(std::atoi(answer.c_str()));
+			_contactDetails(std::atoi(answer.c_str()));
 		else
 			std::cout << "Wrong input" << std::endl;
 	}
 	else
 		std::cout << "You don't have any contacts yet !" << std::endl;
 }
-// void	PhoneBook::define_contact(void) {
-//
-// 	std::cout << "Define Contact called" << std::endl;
-// 	return;
-// }
