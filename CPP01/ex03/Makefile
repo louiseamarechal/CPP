@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/12 15:15:43 by lmarecha          #+#    #+#              #
-#    Updated: 2022/08/12 15:16:00 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/08/16 14:31:36 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,10 @@ NAME = fight
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =	main.cpp
+SRC =	main.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
+		Weapon.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -6,12 +6,15 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 12:01:58 by louisea           #+#    #+#             */
-/*   Updated: 2022/08/16 12:36:18 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/16 14:56:19 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <string>
+# ifndef HUMANB_H
+# define HUMANB_H
+
 #include <iostream>
+#include "Weapon.hpp"
 
 class HumanB {
 
@@ -20,10 +23,12 @@ class HumanB {
 		HumanB(std::string name);
 		~HumanB(void);
 		void		attack();
-		void		setWeapon(Weapon name);
+		void		setWeapon(Weapon type);
 
 	private :
 
 		std::string	_name;
 		Weapon		_type;
 };
+
+#endif

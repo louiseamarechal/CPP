@@ -6,7 +6,7 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 12:12:07 by louisea           #+#    #+#             */
-/*   Updated: 2022/08/16 12:33:45 by louisea          ###   ########.fr       */
+/*   Updated: 2022/08/16 15:03:34 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ Weapon::~Weapon() {
 }
 
 std::string&	Weapon::getType() {
-	return (this->&_type);
+
+	std::string&	typeRef = this->_type;
+
+	return (typeRef);
 }
 
-std::string	Weapon::setType(std::string type) {
+void	Weapon::setType(std::string type) {
 	this->_type = type;
 }
