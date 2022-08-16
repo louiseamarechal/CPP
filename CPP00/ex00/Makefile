@@ -6,13 +6,13 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 17:02:15 by lmarecha          #+#    #+#              #
-#    Updated: 2022/07/20 11:20:23 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/08/11 16:53:08 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
-CC = c++
+CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = megaphone.cpp

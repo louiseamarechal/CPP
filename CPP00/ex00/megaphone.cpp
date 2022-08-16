@@ -6,17 +6,15 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:02:19 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/07/20 10:37:48 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:04:49 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
-#include <locale>
 #include <iostream>
 
 int main (int argc, char **argv)
 {
-	std::locale	loc;
 	int			j;
 	int			i;
 
@@ -28,7 +26,7 @@ int main (int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			std::cout << std::toupper(argv[i][j],loc);
+			std::cout << (char)toupper(argv[i][j]);
 			j++;
 		}
 		i++;
