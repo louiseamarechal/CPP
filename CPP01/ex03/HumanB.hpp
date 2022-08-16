@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/12 15:16:29 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/16 12:40:47 by louisea          ###   ########.fr       */
+/*   Created: 2022/08/16 12:01:58 by louisea           #+#    #+#             */
+/*   Updated: 2022/08/16 12:36:18 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
+// #include <string>
+#include <iostream>
 
-class HumanA {
+class HumanB {
 
 	public :
 
-		HumanA(std::string _name, Weapon& type);
-		~HumanA(void);
+		HumanB(std::string name);
+		~HumanB(void);
 		void		attack();
+		void		setWeapon(Weapon name);
 
 	private :
 
 		std::string	_name;
-		Weapon&		_type;
-
+		Weapon		_type;
 };
