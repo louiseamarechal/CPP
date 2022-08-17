@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:23:23 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/17 16:43:14 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/17 16:57:00 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,7 @@ void	replaceStringInNewFile(std::string fileName, std::string s1, std::string s2
 	outfile.open((fileName + ".replace").c_str(), std::ofstream::out); // open & create outfile
 	if (outfile.is_open())
 	{
-		size = s3.length();
-		outfile.write(s3.c_str(), size); // write new content in s3
+		outfile << s3;
 		outfile.close();
 	}
 	else

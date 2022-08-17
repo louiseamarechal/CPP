@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/17 11:23:31 by lmarecha          #+#    #+#              #
-#    Updated: 2022/08/17 11:31:10 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/08/17 16:48:38 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,6 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp
-
-# HEADER =
 
 OBJ = $(SRC:.cpp=.o)
 
