@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/11 17:43:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/08/11 18:31:08 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/08/17 10:25:14 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,13 @@ SRC =	main.cpp \
 		Zombie.cpp \
 		newZombie.cpp
 
+HEADER = Zombie.hpp
+
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADER)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean :
@@ -33,7 +35,7 @@ clean :
 fclean : clean
 	/bin/rm -f $(NAME)
 
-%.o:%.cpp
+%.o:%.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 re: fclean all

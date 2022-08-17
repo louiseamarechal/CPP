@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/12 15:15:43 by lmarecha          #+#    #+#              #
-#    Updated: 2022/08/16 14:31:36 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/08/17 10:26:56 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,10 @@ SRC =	main.cpp \
 		HumanA.cpp \
 		HumanB.cpp \
 		Weapon.cpp
+
+HEADER = HumanA.hpp \
+		 HumanB.hpp \
+		 Weapon.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
