@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:23:23 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/17 13:12:04 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/17 14:31:34 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,52 +23,45 @@ std::string	convertToString(char* a, int size)
 	return s;
 }
 
+std::string	getFileContent(std::string fileName, int *size) {
 
-
-int	main(int argc, char **argv) {
-
-	if (argc != 4)
-	{
-		std::cout << "Wrong number of arguments";
-		return 1;
-	}
-
-	std::string		s1 = argv[2];
-	std::string		s2 = argv[3];
-	int				size = 0;
-	int				position = 0;
-
-	char*			str;
+	std::ifstream	infile;
 	std::string		s3;
-	std::ifstream	ifs;
-	std::ofstream	ofs;
+	char*			str;
 
+	infile.open(fileName.c_str(), std::ifstream::in); // open file
 
-	// ------------ OPEN FILE -------------------
-	ifs.open(argv[1], std::ifstream::in);
-	//---------------------------------------------
-
-	// ------------- GET FILE LENGTH -------------
-	if (ifs)
+	if (infile) // find file length
 	{
-		ifs.seekg(0, ifs.end); // move position to end of file
-		size = ifs.tellg(); // get position number and store it
-		ifs.seekg(0, ifs.beg); // move back to beginning of file
+		infile.seekg(0, infile.end); // move position to end of file
+		*size = infile.tellg(); // get position number (position nb = filse *size) and store it
+		infile.seekg(0, infile.beg); // move back to beginning of file
 	}
-	std::cout << "ifs size : " << size << std::endl;
-	//----------------------------------------------------
 
-	// ------------ STORE FILE CONTENT -----------------
-	str = new char [size + 1];
-	ifs.read(str, size); // store file content in str
-	ifs.close();
-	//-----------------------------------------------------
+	str = new char [*size + 1];
+	infile.read(str, *size); // store file content in str
 
-	// ----------- CHANGE ALL OCCURENCE OF S1 --------------
-	s3 = convertToString(str, size);
+	s3 = convertToString(str, *size);
+
+	infile.close();
+	delete [] str;
+
+	return (s3);
+}
+
+void	replaceStringInNewFile(std::string fileName, std::string s1, std::string s2)
+{
+	std::ofstream	outfile;
+	std::string		s3;
+
+	int				position = 0;
+	int				size = 0;
+
+	s3 = getFileContent(fileName, &size);
+
 	std::cout << "S3 before replacement: " << s3 << std::endl;
 
-	while ((int)s3.find(s1) != -1)
+	while ((int)s3.find(s1) != -1) // find all occurence of s1 and change it for s2
 	{
 		position = s3.find(s1);
 		s3.erase(position, s1.length());
@@ -76,13 +69,29 @@ int	main(int argc, char **argv) {
 	}
 
 	std::cout << "S3 after replacement: " << s3 << std::endl;
-	//--------------------------------------------------------
 
-	// ------------COPIES S3 IN NEW FILE ----------------------
-	ofs.open("outfile", std::ofstream::out);
-	ofs.write(s3.c_str(), size);
-	ofs.close();
-	//--------------------------------------------------------
+	outfile.open((fileName + ".replace").c_str(), std::ofstream::out); // open & create outfile
+	outfile.write(s3.c_str(), size); // write new content in s3
+	outfile.close();
+}
+
+int	main(int argc, char **argv) {
+
+	std::string	fileName;
+	std::string	s1;
+	std::string	s2;
+
+	if (argc != 4)
+	{
+		std::cout << "Wrong number of arguments";
+		return 1;
+	}
+
+	fileName = argv[1];
+	s1 = argv[2];
+	s2 = argv[3];
+
+	replaceStringInNewFile(fileName, s1, s2);
 
 	return 0;
 }
