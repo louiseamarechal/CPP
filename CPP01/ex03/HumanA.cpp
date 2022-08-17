@@ -6,7 +6,7 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 12:36:55 by louisea           #+#    #+#             */
-/*   Updated: 2022/08/16 17:26:39 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/17 10:27:40 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ HumanA::HumanA(std::string name, Weapon& type) : _name(name), _type(type) {
 }
 
 HumanA::~HumanA() {
-	std::cout << this->_name << " killed!" << std::endl;
+	// std::cout << this->_name << " killed!" << std::endl;
 	return ;
 }
 

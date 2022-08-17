@@ -6,19 +6,19 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 12:12:07 by louisea           #+#    #+#             */
-/*   Updated: 2022/08/16 15:58:44 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/17 10:27:47 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
 Weapon::Weapon(std::string type) : _type(type) {
-	std::cout << "Weapon Created" << std::endl;
+	// std::cout << "Weapon Created" << std::endl;
 	return ;
 }
 
 Weapon::~Weapon() {
-	std::cout << "Weapon killed" << std::endl;
+	// std::cout << "Weapon killed" << std::endl;
 	return ;
 }
 
