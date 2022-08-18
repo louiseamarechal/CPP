@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 17:43:24 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/11 18:44:17 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:58:32 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ class Zombie {
 
 	public :
 
-		Zombie(void);
-		~Zombie(void);
+					Zombie(std::string name);
+					~Zombie(void);
 		void		announce(void) const;
-		void		setZombieName(std::string name);
 
 	private :
 
