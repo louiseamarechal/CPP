@@ -6,7 +6,7 @@
 /*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 12:01:58 by louisea           #+#    #+#             */
-/*   Updated: 2022/08/17 10:22:09 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/18 15:49:23 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ class HumanB {
 
 	public :
 
-		HumanB(std::string name);
-		~HumanB(void);
+					HumanB(std::string name);
+					~HumanB(void);
+					
 		void		attack();
 		void		setWeapon(Weapon& type);
 
