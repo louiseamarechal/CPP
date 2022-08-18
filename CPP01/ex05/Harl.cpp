@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 17:02:36 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/18 14:41:48 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/18 16:03:05 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Harl::Harl(void) {
 Harl::~Harl(void) {
 	return ;
 }
-
 
 void	Harl::complain( std::string level ) {
 

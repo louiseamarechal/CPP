@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/17 16:48:15 by lmarecha          #+#    #+#              #
-#    Updated: 2022/08/17 17:22:21 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/08/18 15:57:47 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,13 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp Harl.cpp
 
-# HEADER =
+HEADER = Harl.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADER)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean :
@@ -32,7 +32,7 @@ clean :
 fclean : clean
 	/bin/rm -f $(NAME)
 
-%.o:%.cpp
+%.o:%.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 re: fclean all
