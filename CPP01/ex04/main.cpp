@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:23:23 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/17 16:57:00 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/18 16:00:11 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ std::string	getFileContent(std::string fileName, int *size) {
 	{
 		infile.seekg(0, infile.end); // move position to end of file
 		*size = infile.tellg(); // get position number (position nb = filse *size) and store it
+		if (*size == 0)
+			std::cout << "File is empty" << std::endl;
 		infile.seekg(0, infile.beg); // move back to beginning of file
 
 		str = new char [*size + 1];
