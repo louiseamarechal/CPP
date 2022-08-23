@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/08/22 16:16:19 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/08/23 17:42:42 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fixed
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC =
+SRC = main.cpp
 
 HEADER =
 
