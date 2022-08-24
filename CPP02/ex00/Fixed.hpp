@@ -6,12 +6,14 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:50:25 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/23 17:22:46 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/08/24 13:11:45 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef FIXED_H
 # define FIXED_H
+
+#include <iostream>
 
 class Fixed {
 
@@ -28,8 +30,8 @@ class Fixed {
 
 	private :
 
-		int			_fixed; // valeur du nombre en virgule fixe
-		int const	_bits;
+		int					_rawBits; // valeur du nombre en virgule fixe
+		static int const	_fractionalPos; // commun a toutes les instances de la classe
 	// Un entier constant statiquepour stocker le nombre de bits de la partiefractionnaire, et dont la valeur sera toujours le littéral entier8
 };
 
