@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:50:25 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/08 16:21:22 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/08 16:42:28 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Fixed {
 		~Fixed( void ); // destructeur
 
 		Fixed&	operator=( Fixed const & rhs ); // surcharge de l'operateur d'affectation
-		Fixed&	operator<<( Fixed const & rhs); // nsère une représentation en vir-gule flottante du nombre à virgule fixe dans le flux de sortie (objet output stream)passé en paramètre.
+		Fixed&	operator<<( Fixed const & rhs); // insère une représentation en virgule flottante du nombre à virgule fixe dans le flux de sortie (objet output stream)passé en paramètre.
 
 		float	toFloat( void ) const; // converti la valeur en virgule fixe en nobre a virfule flottante
 		int		toInt( void ) const; // converi la valeur en virgule fixe en nombre entier
