@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:58:03 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/08/24 13:12:43 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/27 16:47:09 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,21 @@ Fixed::Fixed( void ) : _rawBits( 0 ) {
 
 	return ;
 }
+
+Fixed::Fixed( const int src ) : _rawBits( 0 ) {
+
+	std::cout << "Int constructor called" << std::endl;
+	*this = src << this->_fractionalPos;
+
+	return ;
+}
+
+// Fixed::Fixed( const float src ) : _rawBits( 0 ) {
+//
+// 	std::cout << "Float constructor called" << std::endl;
+//
+// 	return ;
+// }
 
 Fixed::Fixed( Fixed const & src ) {
 
@@ -46,6 +61,14 @@ Fixed&	Fixed::operator=( Fixed const & rhs ) {
 	return *this;
 }
 
+int		Fixed::toInt( void ) const {
+	return (*this >> this->_fractionalPos);
+}
+
+// float	Fixed::toFloat( void ) const {
+//
+// }
+
 void	Fixed::setRawBits( int const raw ) {
 
 	this->_rawBits = raw;
@@ -56,3 +79,9 @@ int		Fixed::getRawBits( void ) const {
 	std::cout << "Get Raw Bits function called" << std::endl;
 	return this->_rawBits;
 }
+
+// std::ostream&	operator<<(std::ostream& os, Fixed const & rhs) {
+// 	// (void)rhs;
+// 	os << rhs.toFloat();
+// 	return (os);
+// }

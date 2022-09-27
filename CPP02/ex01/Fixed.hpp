@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:50:25 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/08 16:42:28 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/27 16:36:46 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ class Fixed {
 	public :
 
 		Fixed( void ); // constructeur par defaut
-		Fixed( const int  ); // constructeur qui convertit const int en virgule fixe
-		Fixed( const float  ); // constructeur qui convertit const float en virgule fixe
+		Fixed( const int src ); // constructeur qui convertit const int en virgule fixe
+		Fixed( const float src ); // constructeur qui convertit const float en virgule fixe
 		Fixed( Fixed const & src ); // constructeur de recopie
 		~Fixed( void ); // destructeur
 
 		Fixed&	operator=( Fixed const & rhs ); // surcharge de l'operateur d'affectation
-		Fixed&	operator<<( Fixed const & rhs); // insère une représentation en virgule flottante du nombre à virgule fixe dans le flux de sortie (objet output stream)passé en paramètre.
 
 		float	toFloat( void ) const; // converti la valeur en virgule fixe en nobre a virfule flottante
 		int		toInt( void ) const; // converi la valeur en virgule fixe en nombre entier
@@ -39,5 +38,7 @@ class Fixed {
 		static int const	_fractionalPos; // commun a toutes les instances de la classe
 	// Un entier constant statiquepour stocker le nombre de bits de la partiefractionnaire, et dont la valeur sera toujours le littéral entier8
 };
+
+std::ostream&	operator<<(std::ostream& os, Fixed const & rhs); // insère une représentation en virgule flottante du nombre à virgule fixe dans le flux de sortie (objet output stream)passé en paramètre.
 
 #endif
