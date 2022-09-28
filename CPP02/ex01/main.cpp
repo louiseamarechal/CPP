@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:46:14 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/28 12:43:53 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:27:12 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,16 @@ int	main ( void ) {
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+
+
+	std::cout << "a is 1234.43" << std::endl;
+	std::cout << "b is 10" << std::endl;
+	std::cout << "c is 42.4219" << std::endl;
+	std::cout << "d is 10" << std::endl;
+	std::cout << "a is 1234 as integer" << std::endl;
+	std::cout << "b is 10 as integer" << std::endl;
+	std::cout << "c is 42 as integer" << std::endl;
+	std::cout << "d is 10 as integer" << std::endl;
 
 	return 0;
 }

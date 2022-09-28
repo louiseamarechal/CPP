@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:58:03 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/28 12:57:42 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:32:36 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed( const int src ) : _rawBits( 0 ) {
 Fixed::Fixed( const float src ) : _rawBits( 0 ) {
 
 	std::cout << "Float constructor called" << std::endl;
-	this->_rawBits = src * this->_rawBits.toInt();
+	this->_rawBits = roundf(src * (1 << this->_fractionalPos));
 	return ;
 }
 
@@ -66,7 +66,7 @@ int		Fixed::toInt( void ) const {
 }
 
 float	Fixed::toFloat( void ) const {
-	return (this->_rawBits << this->_fractionalPos);
+	return ((float)this->_rawBits / (1 << this->_fractionalPos));
 }
 
 void	Fixed::setRawBits( int const raw ) {

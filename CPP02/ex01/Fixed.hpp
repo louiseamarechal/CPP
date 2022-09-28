@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:50:25 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/28 12:50:09 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:31:05 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_H
 
 #include <iostream>
+#include <math.h>
 
 class Fixed {
 
