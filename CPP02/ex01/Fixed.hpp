@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:50:25 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/27 16:36:46 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/28 12:50:09 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Fixed {
 
 		Fixed&	operator=( Fixed const & rhs ); // surcharge de l'operateur d'affectation
 
-		float	toFloat( void ) const; // converti la valeur en virgule fixe en nobre a virfule flottante
+		float	toFloat( void ) const; // converti la valeur en virgule fixe en nobre a virgule flottante
 		int		toInt( void ) const; // converi la valeur en virgule fixe en nombre entier
 		int		getRawBits( void ) const; // retourne la valeur du nombre a virgule fixe sans la convertir
 		void	setRawBits( int const raw ); // initialise la valeur du nb a virgule avec celle passee en parametre
