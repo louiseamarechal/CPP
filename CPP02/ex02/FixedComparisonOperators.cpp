@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 13:56:37 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/29 15:32:40 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:50:21 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ bool	Fixed::operator<( Fixed const & rhs ) {
 
 	return (false);
 }
+
 bool	Fixed::operator<=( Fixed const & rhs ) {
 
 
@@ -45,6 +46,7 @@ bool	Fixed::operator<=( Fixed const & rhs ) {
 
 	return (false);
 }
+
 bool	Fixed::operator>=( Fixed const & rhs ) {
 
 
@@ -53,6 +55,7 @@ bool	Fixed::operator>=( Fixed const & rhs ) {
 
 	return (false);
 }
+
 bool	Fixed::operator==( Fixed const & rhs ) {
 
 
@@ -61,6 +64,7 @@ bool	Fixed::operator==( Fixed const & rhs ) {
 
 	return (false);
 }
+
 bool	Fixed::operator!=( Fixed const & rhs ) {
 
 

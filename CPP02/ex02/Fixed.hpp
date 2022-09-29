@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:50:25 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/29 16:49:43 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:59:48 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Fixed {
 		~Fixed( void );
 
 		// surcharge de l'operateur d'affectation
-		Fixed	&operator=( Fixed const & rhs );
+		Fixed	& operator=( Fixed const & rhs );
 
 		// operateurs de comparaison
 		bool	operator>( Fixed const & rhs );
@@ -46,8 +46,8 @@ class Fixed {
 		Fixed	operator/( Fixed const & rhs );
 
 		// operateur pre incrementation / pre decrementation
-		Fixed	&operator++();
-		Fixed	&operator--();
+		Fixed	& operator++();
+		Fixed	& operator--();
 
 		// operateur post incrementation / post decrementation
 		Fixed	operator++(int);
@@ -63,10 +63,10 @@ class Fixed {
 		// initialise la valeur du nb a virgule avec celle passee en parametre
 		void	setRawBits( int const raw );
 
-		static Fixed		&min( Fixed & nb1, Fixed & nb2);
-		static Fixed const	&min( Fixed & nb1 const, Fixed & nb2 const);
-		static Fixed		&max( Fixed & nb1, Fixed & nb2);
-		static Fixed const	&max( Fixed & nb1 const, Fixed & nb2 const);
+		static Fixed		& min( Fixed & nb1, Fixed & nb2 );
+		static Fixed const	& min( Fixed const & nb1, Fixed const & nb2 );
+		static Fixed		& max( Fixed & nb1, Fixed & nb2 );
+		static Fixed const	& max( Fixed const & nb1, Fixed const & nb2 );
 
 	private :
 		// valeur du nombre en virgule fixe

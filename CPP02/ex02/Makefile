@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/09/29 15:32:57 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/09/29 17:03:00 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRC =	main.cpp \
 		Fixed.cpp \
 		FixedComparisonOperators.cpp \
 		FixedArithmeticOperators.cpp \
-		FixedOtherOperators.cpp
+		FixedOtherOperators.cpp \
+		FixedFunctions.cpp
 
 HEADER = Fixed.hpp
 
