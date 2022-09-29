@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:50:25 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/29 16:36:31 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/29 16:49:43 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,40 +20,62 @@ class Fixed {
 
 	public :
 
-		Fixed( void ); // constructeur par defaut
-		Fixed( const int src ); // constructeur qui convertit const int en virgule fixe
-		Fixed( const float src ); // constructeur qui convertit const float en virgule fixe
-		Fixed( Fixed const & src ); // constructeur de recopie
-		~Fixed( void ); // destructeur
+		Fixed( void );
+		// constructeur qui convertit const int/float en virgule fixe
+		Fixed( const int src );
+		Fixed( const float src );
+		// constructeur de recopie
+		Fixed( Fixed const & src );
+		~Fixed( void );
 
-		Fixed	&operator=( Fixed const & rhs ); // surcharge de l'operateur d'affectation
+		// surcharge de l'operateur d'affectation
+		Fixed	&operator=( Fixed const & rhs );
+
+		// operateurs de comparaison
 		bool	operator>( Fixed const & rhs );
 		bool	operator<( Fixed const & rhs );
 		bool	operator<=( Fixed const & rhs );
 		bool	operator>=( Fixed const & rhs );
 		bool	operator==( Fixed const & rhs );
 		bool	operator!=( Fixed const & rhs );
+
+		// operateurs arithmetiques
 		Fixed	operator+( Fixed const & rhs );
 		Fixed	operator-( Fixed const & rhs );
 		Fixed	operator*( Fixed const & rhs );
 		Fixed	operator/( Fixed const & rhs );
-		Fixed	&operator++(); // operateur pre incrementation
-		Fixed	operator++(int); // operateur post incrementation
-		Fixed	&operator--(); // operateur pre decrementation
-		Fixed	operator--(int); // operateur post decrementation
 
-		float	toFloat( void ) const; // converti la valeur en virgule fixe en nobre a virgule flottante
-		int		toInt( void ) const; // converi la valeur en virgule fixe en nombre entier
-		int		getRawBits( void ) const; // retourne la valeur du nombre a virgule fixe sans la convertir
-		void	setRawBits( int const raw ); // initialise la valeur du nb a virgule avec celle passee en parametre
+		// operateur pre incrementation / pre decrementation
+		Fixed	&operator++();
+		Fixed	&operator--();
+
+		// operateur post incrementation / post decrementation
+		Fixed	operator++(int);
+		Fixed	operator--(int);
+
+		// converti la valeur en virgule fixe en nb a virgule flottante / en nombre entier
+		float	toFloat( void ) const;
+		int		toInt( void ) const;
+
+		// retourne la valeur du nombre a virgule fixe sans la convertir
+		int		getRawBits( void ) const;
+
+		// initialise la valeur du nb a virgule avec celle passee en parametre
+		void	setRawBits( int const raw );
+
+		static Fixed		&min( Fixed & nb1, Fixed & nb2);
+		static Fixed const	&min( Fixed & nb1 const, Fixed & nb2 const);
+		static Fixed		&max( Fixed & nb1, Fixed & nb2);
+		static Fixed const	&max( Fixed & nb1 const, Fixed & nb2 const);
 
 	private :
-
-		int					_rawBits; // valeur du nombre en virgule fixe
-		static int const	_fractionalPos; // commun a toutes les instances de la classe
-	// Un entier constant statiquepour stocker le nombre de bits de la partiefractionnaire, et dont la valeur sera toujours le littéral entier8
+		// valeur du nombre en virgule fixe
+		int					_rawBits;
+		// entier constant statique pour stocker le nombre de bits de la partiefractionnaire, et dont la valeur sera toujours le littéral entier 8
+		static int const	_fractionalPos;
 };
 
-std::ostream&	operator<<( std::ostream& os, Fixed const & rhs ); // insère une représentation en virgule flottante du nombre à virgule fixe dans le flux de sortie (objet output stream)passé en paramètre.
+// insère une représentation en virgule flottante du nombre à virgule fixe dans le flux de sortie (objet output stream)passé en paramètre.
+std::ostream&	operator<<( std::ostream& os, Fixed const & rhs );
 
 #endif
