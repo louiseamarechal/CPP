@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:43:09 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/30 11:20:06 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:44:01 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class ClapTrap {
 
 	public :
+		ClapTrap( void );
 		ClapTrap( std::string name);
 		// constructeur de recopie
 		ClapTrap( ClapTrap const & src );
@@ -33,14 +34,17 @@ class ClapTrap {
 		int			getHitPoints() const;
 		int			getEnergyPoints() const;
 		int			getAttackDamage() const;
+		//
+		// void		setName( std::string name );
+		// void		setHitPoints( int hitPoints );
+		// void		setEnergyPoints( int energyPoints );
+		// void		setAttackDamage( int attackDamage );
 
-	private :
-
-		ClapTrap( void );
-		std::string	_Name;
-		int			_HitPoints;
-		int			_EnergyPoints;
-		int			_AttackDamage;
+	protected :
+		std::string	name;
+		int			hitPoints;
+		int			energyPoints;
+		int			attackDamage;
 };
 
 #endif

@@ -6,26 +6,37 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:23:34 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/30 11:16:57 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/30 14:44:12 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( std::string name ) :
-											_Name( name ),
-											_HitPoints( 10 ),
-											_EnergyPoints( 10 ),
-											_AttackDamage ( 0 ) {
+ClapTrap::ClapTrap( void ) :
+								name( "" ),
+								hitPoints( 10 ),
+								energyPoints( 10 ),
+								attackDamage ( 0 ) {
 
-	std::cout << "Default Constructor called" << std::endl;
+	std::cout << "ClapTrap default constructor called " << std::endl;
+
+	return;
+}
+
+ClapTrap::ClapTrap( std::string name ) :
+											name( name ),
+											hitPoints( 10 ),
+											energyPoints( 10 ),
+											attackDamage ( 0 ) {
+
+	std::cout << "ClapTrap constructor called" << std::endl;
 
 	return;
 }
 
 ClapTrap::ClapTrap( ClapTrap const & src ) {
 
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ClapTrap copy constructor called" << std::endl;
 	*this = src;
 
 	return ;
@@ -33,7 +44,7 @@ ClapTrap::ClapTrap( ClapTrap const & src ) {
 
 ClapTrap::~ClapTrap( void ) {
 
-	std::cout << "Deconstructor called" << std::endl;
+	std::cout << "ClapTrap deconstructor called" << std::endl;
 
 	return ;
 }
@@ -42,10 +53,10 @@ ClapTrap const	& ClapTrap::operator=( ClapTrap const & rhs ) {
 
 	if ( this != &rhs )
 	{
-		this->_Name = rhs.getName();
-		this->_HitPoints = rhs.getHitPoints();
-		this->_EnergyPoints = rhs.getEnergyPoints();
-		this->_AttackDamage = rhs.getAttackDamage();
+		this->name = rhs.getName();
+		this->hitPoints = rhs.getHitPoints();
+		this->energyPoints = rhs.getEnergyPoints();
+		this->attackDamage = rhs.getAttackDamage();
 	}
 
 	return (*this);

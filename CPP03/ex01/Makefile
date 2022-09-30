@@ -6,21 +6,22 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/09/30 11:06:16 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/09/30 14:45:26 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
+NAME = ScavTrap
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp \
 		ClapTrap.cpp \
+		ClapTrapCanonical.cpp \
 		ClapTrapGetters.cpp \
-		ClapTrapCanonical.cpp
+		ScavTrap.cpp
 
-HEADER = ClapTrap.hpp
+HEADER = ScavTrap.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
