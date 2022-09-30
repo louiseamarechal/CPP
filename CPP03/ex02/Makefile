@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/09/30 14:54:03 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/09/30 15:12:21 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,9 @@ SRC =	main.cpp \
 		ClapTrap.cpp \
 		ClapTrapCanonical.cpp \
 		ClapTrapGetters.cpp \
-		ScavTrap.cpp
+		FragTrap.cpp
 
-HEADER = ScavTrap.hpp
+HEADER = FragTrap.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
