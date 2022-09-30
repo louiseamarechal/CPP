@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:52:21 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/29 18:24:21 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:23:30 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,24 @@ void	ClapTrap::attack( const std::string & target) {
 
 void	ClapTrap::takeDamage( unsigned int amount ) {
 
-	std::cout << "ClapTrap " << this->_Name << " loses " << amount << "hit points" << std::endl;
+	if (this->_HitPoints <= 0 || this->_EnergyPoints <= 0)
+	{
+		std::cout << "You are too weak to take Danage" << std::endl;
+		return ;
+	}
+
+	std::cout << "ClapTrap " << this->_Name << " loses " << amount << " hit points" << std::endl;
 
 	this->_HitPoints -= amount;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount ) {
+
+	if (this->_HitPoints <= 0 || this->_EnergyPoints <= 0)
+	{
+		std::cout << "You are too weak to be repaired" << std::endl;
+		return ;
+	}
 
 	std::cout << "ClapTrap " << this->_Name << " wins " << amount << " hit points" << std::endl;
 

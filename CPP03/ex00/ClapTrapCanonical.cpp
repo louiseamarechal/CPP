@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:23:34 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/29 18:31:01 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:16:57 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ ClapTrap::~ClapTrap( void ) {
 	return ;
 }
 
-ClapTrap	& ClapTrap::operator=( ClapTrap const & rh ) {
+ClapTrap const	& ClapTrap::operator=( ClapTrap const & rhs ) {
 
-	if ( this != &rh )
+	if ( this != &rhs )
 	{
-		this->_Name = rh.getName();
-		this->_HitPoints = rh.getHitPoints();
-		this->_EnergyPoints = rh.getEnergyPoints();
-		this->_AttackDamage = rh.getAttackDamage();
+		this->_Name = rhs.getName();
+		this->_HitPoints = rhs.getHitPoints();
+		this->_EnergyPoints = rhs.getEnergyPoints();
+		this->_AttackDamage = rhs.getAttackDamage();
 	}
 
 	return (*this);
