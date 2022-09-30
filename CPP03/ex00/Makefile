@@ -6,11 +6,11 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/09/30 11:06:16 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/09/30 14:07:00 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
+NAME = ClapTrap
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
