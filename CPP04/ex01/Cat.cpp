@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:40:04 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/30 17:02:26 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:07:16 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 Cat::Cat( void ) {
 
 	this->type = "Cat";
-	std::cout << "Cat Default constructor called" << std::endl;
+	this->_brain = new Brain();
+
+	std::cout << "Cat default constructor called" << std::endl;
 
 	return ;
 }
@@ -29,6 +31,8 @@ Cat::Cat(Cat const & src) {
 }
 
 Cat::~Cat( void ) {
+
+	delete this->_brain;
 
 	std::cout << "Cat deconstructor called" << std::endl;
 

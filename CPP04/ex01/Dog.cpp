@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:40:04 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/30 17:02:29 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:07:22 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 Dog::Dog( void ) {
 
 	this->type = "Dog";
-	std::cout << "Dog Default constructor called" << std::endl;
+	this->_brain = new Brain();
+
+	std::cout << "Dog default constructor called" << std::endl;
 
 	return ;
 }
@@ -29,6 +31,8 @@ Dog::Dog(Dog const & src) {
 }
 
 Dog::~Dog( void ) {
+	
+	delete this->_brain;
 
 	std::cout << "Dog deconstructor called" << std::endl;
 
