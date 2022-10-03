@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:34:30 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/03 11:56:08 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/03 11:51:32 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef CAT_H
-# define CAT_H
+# ifndef WRONGCAT_H
+# define WRONGCAT_H
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public Animal {
+class WrongCat : public WrongAnimal {
 
 	public:
-		Cat( void );
-		Cat(Cat const & src);
-		~Cat( void );
+		WrongCat( void );
+		WrongCat(WrongCat const & src);
+		~WrongCat( void );
 
-		Cat const	& operator=(Cat const & rhs);
+		WrongCat const	& operator=(WrongCat const & rhs);
 		void	makeSound() const;
 
 };
