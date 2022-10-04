@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:34:30 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/03 17:01:38 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:15:01 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ class Cat : public Animal {
 		~Cat( void );
 
 		Cat const	& operator=(Cat const & rhs);
-		void	makeSound() const;
+		void		makeSound() const;
+		std::string	getCatBrainIdea(int index) const;
 
 	private:
-		Brain	*_brain;
+		Brain		*_brain;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:34:30 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/03 17:01:35 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:15:22 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ class Dog : public Animal {
 		~Dog( void );
 
 		Dog const	& operator=(Dog const & rhs);
-		void	makeSound() const;
+		void		makeSound() const;
+		std::string	getDogBrainIdea(int index) const;
 
 	private:
-		Brain	*_brain;
+		Brain		*_brain;
 };
 
 #endif

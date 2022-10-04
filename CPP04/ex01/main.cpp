@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:49:57 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/04 12:51:28 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:19:27 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main() {
 
 	std::cout << "-------------------------------" << std::endl;
 	std::cout << std::endl;
+	std::cout << "-------- Animal Sounds ---------" << std::endl;
 
 	std::cout << "Cat Sound: ";
 	i->makeSound();
@@ -48,6 +49,15 @@ int	main() {
 	meta->makeSound();
 	std::cout << std::endl;
 
+	std::cout << "-------------------------------" << std::endl;
+	std::cout << std::endl;
+	std::cout << "-------- Animal Idea ---------" << std::endl;
+	for (int ix = 0; ix < 2; ix++)
+		animals[ix]->getCatBrainIdea(ix);
+	for (int ix = 2; ix < 4; ix++)
+		animals[ix]->getDogBrainIdea(ix);
+
+	std::cout << "-------------------------------" << std::endl;
 	std::cout << std::endl;
 	std::cout << "-------- Deconstructors ---------" << std::endl;
 	std::cout << "Animal: " << std::endl;

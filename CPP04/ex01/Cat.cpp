@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:40:04 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/04 12:31:08 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:16:40 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ Cat::Cat( void ) {
 
 	this->type = "Cat";
 	this->_brain = new Brain();
+
+	for (int i = 0; i < 4; i++)
+		this->_brain->setIdea(i, "This is the reprensentation of a bad idea");
 
 	return ;
 }
@@ -50,4 +53,9 @@ Cat const	& Cat::operator=(Cat const & rhs) {
 void	Cat::makeSound() const {
 
 	std::cout << "Meooooow" << std::endl;
+}
+
+std::string	getCatBrainIdea(int index) const {
+
+	return (this->_brain->getIdea(index));
 }

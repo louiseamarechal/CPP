@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 14:47:01 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/04 12:52:03 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:11:13 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	Brain::setIdea(int index, std::string idea) {
 
 	if ( index <= this->_nbIdeas )
 		this->_ideas[index] = idea;
+
+	this->_nbIdeas += 1;
 }
 
 Brain const	& Brain::operator=( Brain const & rhs ) {

@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:49:57 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/04 12:57:23 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 13:02:59 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 int	main() {
 
 	std::cout << "-------- Constructors ---------" << std::endl;
-	// std::cout << "Animal: " << std::endl;
-	// const AAnimal* meta = new AAnimal();
-	// std::cout << std::endl;
 
 	std::cout << "Cat: " << std::endl;
 	const AAnimal* i = new Cat();
@@ -44,15 +41,9 @@ int	main() {
 	i->makeSound();
 	std::cout << "Dog Sound: ";
 	j->makeSound();
-	// std::cout << "Animal Sound: ";
-	// meta->makeSound();
-	// std::cout << std::endl;
 
 	std::cout << std::endl;
 	std::cout << "-------- Deconstructors ---------" << std::endl;
-	// std::cout << "Animal: " << std::endl;
-	// delete meta;
-	// std::cout << std::endl;
 
 	std::cout << "Cat: " << std::endl;
 	delete i;
