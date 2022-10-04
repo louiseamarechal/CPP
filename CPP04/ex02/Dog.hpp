@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:34:30 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/03 17:01:35 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:56:11 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog : public AAnimal {
 
 	public:
 		Dog( void );
