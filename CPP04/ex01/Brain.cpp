@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 14:47:01 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/03 17:03:49 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:52:03 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ Brain const	& Brain::operator=( Brain const & rhs ) {
 
 Brain::~Brain( void ) {
 
-	std::cout << "Brain default deconstructor" << std::endl;
+	std::cout << "Brain deconstructor called" << std::endl;
 
 	return;
 }

@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:40:04 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/03 17:07:16 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:31:08 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 Cat::Cat( void ) {
 
+	std::cout << "Cat default constructor called" << std::endl;
+
 	this->type = "Cat";
 	this->_brain = new Brain();
-
-	std::cout << "Cat default constructor called" << std::endl;
 
 	return ;
 }
