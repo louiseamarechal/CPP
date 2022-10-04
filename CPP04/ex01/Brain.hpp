@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 14:43:30 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/03 16:57:32 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 15:05:47 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ class Brain {
 		Brain const	&	operator=( Brain const & rhs );
 
 		std::string		getIdea(int index) const;
-
 		void			setIdea(int index, std::string idea);
+		void			printIdeas( void )const;
 
 	private:
 		std::string		_ideas[100];

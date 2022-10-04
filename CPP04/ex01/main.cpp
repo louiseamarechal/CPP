@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:49:57 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/04 13:19:27 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 15:11:02 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,25 @@ int	main() {
 
 	std::cout << "-------------------------------" << std::endl;
 	std::cout << std::endl;
-	std::cout << "-------- Animal Idea ---------" << std::endl;
+
+	std::cout << "-------- Animal Array Type ---------" << std::endl;
+
 	for (int ix = 0; ix < 2; ix++)
-		animals[ix]->getCatBrainIdea(ix);
+		std::cout << "animal[" << ix << "] type: "<< animals[ix]->getType() << std::endl;
+
 	for (int ix = 2; ix < 4; ix++)
-		animals[ix]->getDogBrainIdea(ix);
+		std::cout << "animal[" << ix << "] type: "<< animals[ix]->getType() << std::endl;
+
+	std::cout << "-------------------------------" << std::endl;
+
+	std::cout << std::endl;
+	std::cout << "-------- Animal Array Ideas ---------" << std::endl;
+	for (int ix = 0; ix < 4; ix++)
+		animals[ix]->printIdeas();
 
 	std::cout << "-------------------------------" << std::endl;
 	std::cout << std::endl;
+
 	std::cout << "-------- Deconstructors ---------" << std::endl;
 	std::cout << "Animal: " << std::endl;
 	delete meta;

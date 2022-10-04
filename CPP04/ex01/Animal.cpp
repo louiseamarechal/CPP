@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:31:08 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/30 17:02:21 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 15:09:37 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,8 @@ Animal const	& Animal::operator=(Animal const & rhs) {
 void	Animal::makeSound() const {
 
 	std::cout << "Animal sound" << std::endl;
+}
+
+void	Animal::printIdeas( void ) const {
+	std::cout << "Animal don't have ideas" << std::endl;
 }
