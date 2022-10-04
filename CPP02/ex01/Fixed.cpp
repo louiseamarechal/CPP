@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 12:58:03 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/29 12:32:34 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:11:30 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	Fixed::setRawBits( int const raw ) {
 
 int		Fixed::getRawBits( void ) const {
 
-	std::cout << "Get Raw Bits function called" << std::endl;
+	// std::cout << "Get Raw Bits function called" << std::endl;
 	return this->_rawBits;
 }
 
