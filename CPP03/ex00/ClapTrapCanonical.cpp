@@ -6,17 +6,17 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:23:34 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/30 11:16:57 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:02:43 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap( std::string name ) :
-											_Name( name ),
-											_HitPoints( 10 ),
-											_EnergyPoints( 10 ),
-											_AttackDamage ( 0 ) {
+											_name( name ),
+											_hitPoints( 10 ),
+											_energyPoints( 10 ),
+											_attackDamage ( 0 ) {
 
 	std::cout << "Default Constructor called" << std::endl;
 
@@ -42,10 +42,10 @@ ClapTrap const	& ClapTrap::operator=( ClapTrap const & rhs ) {
 
 	if ( this != &rhs )
 	{
-		this->_Name = rhs.getName();
-		this->_HitPoints = rhs.getHitPoints();
-		this->_EnergyPoints = rhs.getEnergyPoints();
-		this->_AttackDamage = rhs.getAttackDamage();
+		this->_name = rhs.getName();
+		this->_hitPoints = rhs.getHitPoints();
+		this->_energyPoints = rhs.getEnergyPoints();
+		this->_attackDamage = rhs.getAttackDamage();
 	}
 
 	return (*this);

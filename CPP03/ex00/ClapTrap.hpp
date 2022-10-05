@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:43:09 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/30 11:20:06 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:01:38 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ class ClapTrap {
 	private :
 
 		ClapTrap( void );
-		std::string	_Name;
-		int			_HitPoints;
-		int			_EnergyPoints;
-		int			_AttackDamage;
+		std::string	_name;
+		int			_hitPoints;
+		int			_energyPoints;
+		int			_attackDamage;
 };
 
 #endif
