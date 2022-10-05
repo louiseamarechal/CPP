@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 15:02:42 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/30 15:15:06 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:46:12 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ FragTrap const	& FragTrap::operator=( FragTrap const & rhs ) {
 
 FragTrap::~FragTrap( void ) {
 
-	std::cout << "FragTrap deconstructor called" << std::endl;
+	std::cout << "FragTrap destructor called" << std::endl;
 
 	return ;
 }
