@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 13:55:03 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/09/30 14:57:16 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:38:06 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ScavTrap::ScavTrap( ScavTrap const & src ) {
 
 ScavTrap::~ScavTrap( void ) {
 
-	std::cout << "ScavTrap deconstructor called" << std::endl;
+	std::cout << "ScavTrap destructor called" << std::endl;
 
 	return ;
 }
