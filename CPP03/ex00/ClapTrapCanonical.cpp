@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:23:34 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/05 12:02:43 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:12:02 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ClapTrap::ClapTrap( ClapTrap const & src ) {
 
 ClapTrap::~ClapTrap( void ) {
 
-	std::cout << "Deconstructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 
 	return ;
 }

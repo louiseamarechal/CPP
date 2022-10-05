@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:52:21 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/05 12:02:19 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/05 12:10:05 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ClapTrap::takeDamage( unsigned int amount ) {
 
 	if (this->_hitPoints <= 0 || this->_energyPoints <= 0)
 	{
-		std::cout << "You are too weak to take Danage" << std::endl;
+		std::cout << "You are too weak to take Damage" << std::endl;
 		return ;
 	}
 
