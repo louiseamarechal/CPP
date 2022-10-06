@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:47 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/06 12:29:08 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/06 15:03:23 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int	main( void ) {
 
 	try {
 		Bureaucrat antoine = Bureaucrat("Antoine", 150);
-		std::cout << "Antoine original grade            : " << antoine.getGrade() << std::endl;
+		std::cout << antoine;
 		antoine.incrementBureaucrateGrade();
-		std::cout << "Antoine grade after incrementation: " << antoine.getGrade() << std::endl;
+		std::cout << antoine;
 		antoine.decrementBureaucrateGrade();
-		std::cout << "Antoine grade after decrementation: " << antoine.getGrade() << std::endl;
+		std::cout << antoine;
 		antoine.decrementBureaucrateGrade();
-		std::cout << "Antoine grade after decrementation: " << antoine.getGrade() << std::endl;
+		std::cout << antoine;
 	}
 	catch(Bureaucrat::GradeTooHighException& e) {
 		std::cout << e.what() << std::endl;
@@ -47,19 +47,19 @@ int	main( void ) {
 	try {
 		Bureaucrat jacinthe = Bureaucrat("Jacinthe", 3);
 
-		std::cout << "Jacinthe origingal grade           : " << jacinthe.getGrade() << std::endl;
+		std::cout << jacinthe;
 		jacinthe.decrementBureaucrateGrade();
-		std::cout << "Jacinthe grade after decrementation: " << jacinthe.getGrade() << std::endl;
+		std::cout << jacinthe;
 		jacinthe.incrementBureaucrateGrade();
-		std::cout << "Jacinthe grade after incrementation: " << jacinthe.getGrade() << std::endl;
+		std::cout << jacinthe;
 		jacinthe.incrementBureaucrateGrade();
-		std::cout << "Jacinthe grade after incrementation: " << jacinthe.getGrade() << std::endl;
+		std::cout << jacinthe;
 		jacinthe.incrementBureaucrateGrade();
-		std::cout << "Jacinthe grade after incrementation: " << jacinthe.getGrade() << std::endl;
+		std::cout << jacinthe;
 		jacinthe.incrementBureaucrateGrade();
-		std::cout << "Jacinthe grade after incrementation: " << jacinthe.getGrade() << std::endl;
+		std::cout << jacinthe;
 		jacinthe.incrementBureaucrateGrade();
-		std::cout << "Jacinthe grade after incrementation: " << jacinthe.getGrade() << std::endl;
+		std::cout << jacinthe;
 	}
 	catch(Bureaucrat::GradeTooHighException& e) {
 		std::cout << e.what() << std::endl;

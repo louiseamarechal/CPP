@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:25:14 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/05 18:11:53 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/06 14:56:42 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ class Bureaucrat {
 		int					_grade;
 };
 
-// std::ostream&	operator<<( std::ostream& os, Bureaucrat const & rhs );
+std::ostream&	operator<<( std::ostream& os, Bureaucrat const & rhs );
 
 #endif
