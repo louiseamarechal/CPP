@@ -6,15 +6,18 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:25:14 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/06 15:43:52 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/06 16:45:59 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include <iostream>
-# include <string>
+#include <iostream>
+
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
 
@@ -38,7 +41,7 @@ class Bureaucrat {
 		Bureaucrat( std::string name, int grade );
 		Bureaucrat( Bureaucrat const & src );
 
-		Bureaucrat&	operator=( Bureaucrat const & rhs );
+		Bureaucrat &	operator=( Bureaucrat const & rhs );
 
 		~Bureaucrat( void );
 
@@ -47,6 +50,7 @@ class Bureaucrat {
 
 		void				incrementBureaucrateGrade( void );
 		void				decrementBureaucrateGrade( void );
+		void				signForm( Form& form );
 
 	private:
 		Bureaucrat( void );
