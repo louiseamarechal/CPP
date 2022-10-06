@@ -6,14 +6,14 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:37:26 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/05 18:11:43 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/06 12:31:53 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 /********************************************************/
-/*						Canonical Form					*/
+/*						con/destructors					*/
 /********************************************************/
 
 Bureaucrat::Bureaucrat( void ) : _name(""), _grade(150) {
@@ -44,18 +44,27 @@ Bureaucrat::Bureaucrat( Bureaucrat const & src ) : _name(src.getName()) {
 	return ;
 }
 
+Bureaucrat::~Bureaucrat( void ) {
+
+	std::cout << "Bureaucrat destructor called" << std::endl;
+}
+
+/********************************************************/
+/*							Operators					*/
+/********************************************************/
 
 Bureaucrat &	Bureaucrat::operator=( Bureaucrat const & rhs ) {
 
 	if (this != &rhs)
-		this->_grade = rhs.getGrade();
+	this->_grade = rhs.getGrade();
 
 	return (*this);
 }
 
-Bureaucrat::~Bureaucrat( void ) {
+std::ostream&	operator<<(std::ostream& os, Bureaucrat const & rhs) {
 
-	std::cout << "Bureaucrat destructor called" << std::endl;
+	os << rhs;
+	return (os);
 }
 
 /********************************************************/
@@ -77,7 +86,7 @@ void	Bureaucrat::incrementBureaucrateGrade( void ) {
 	if (this->_grade <= 1)
 		throw(GradeTooHighException());
 
-	this->_grade++;
+	this->_grade--;
 }
 
 void	Bureaucrat::decrementBureaucrateGrade( void ) {
