@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:37:26 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/06 16:58:49 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 12:38:27 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,12 @@ int	Bureaucrat::getGrade( void ) const {
 /*							Functions					*/
 /********************************************************/
 
-void	Bureaucrat::signForm( Form& form ) {
+void	Bureaucrat::signForm( AForm& form ) {
 
 	try {
 		form.beSigned( *this );
 	}
-	catch(Form::GradeTooLowException& e) {
+	catch(AForm::GradeTooLowException& e) {
 		std::cout << this->_name << " couldn't sign " << form.getName();
 		std::cout << " because " << e.what() << std::endl;
 	}

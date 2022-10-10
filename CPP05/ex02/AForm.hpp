@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:22:15 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/06 17:40:17 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:08:30 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class AForm {
 
 			public:
 				virtual const char *what() const throw() {
-					return("Requested grade is too high!");
+					return("Requested grade is too high, bureaucrat can't sign it!");
 				}
 		};
 
@@ -33,15 +33,15 @@ class AForm {
 
 			public:
 				virtual const char *what() const throw() {
-					return("Requested grade is too low!");
+					return("Requested grade is too low, bureaucrat can't sign it!");
 				}
 		};
 
-		Form( std::string name, bool sign, int gradeToSign, int gradeToExec);
-		Form( Form const & src );
-		~Form( void );
+		AForm( std::string name, bool sign, int gradeToSign, int gradeToExec);
+		AForm( AForm const & src );
+		~AForm( void );
 
-		Form&	operator=( Form const & rhs );
+		AForm&	operator=( AForm const & rhs );
 
 		std::string const	getName() const;
 		bool				getSigned() const;
@@ -53,7 +53,7 @@ class AForm {
 		virtual void		execute( Bureaucrat const & executor ) const = 0;
 
 	private:
-		Form( void );
+		AForm( void );
 
 		std::string const	_name;
 		bool				_signed;
@@ -62,6 +62,6 @@ class AForm {
 
 };
 
-std::ostream&	operator<<( std::ostream& os, Form const & rhs );
+std::ostream&	operator<<( std::ostream& os, AForm const & rhs );
 
 #endif

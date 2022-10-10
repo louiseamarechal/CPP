@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:16:33 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/06 17:58:36 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:07:16 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,14 @@
 /********************************************************/
 
 ShruberryCreationForm::ShruberryCreationForm( std::string const & target) :
-	Form("Shruberry", false, 145, 137), _target(target) {
+	AForm("Shruberry", false, 145, 137), _target(target) {
 
 	std::cout << "Shruberry constructor called" << std::endl;
 	return;
 }
 
 ShruberryCreationForm::ShruberryCreationForm( ShruberryCreationForm const & src ) :
- 	Form("Shruberry", false, 145, 137) {
-
-	*this = src;
+ 	AForm("Shruberry", false, 145, 137), _target(src.getTarget()) {
 
 	std::cout << "Shruberry copy constructor called" << std::endl;
 	return;
@@ -34,7 +32,7 @@ ShruberryCreationForm::ShruberryCreationForm( ShruberryCreationForm const & src 
 
 ShruberryCreationForm::~ShruberryCreationForm( void ) {
 
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Shruberry destructor called" << std::endl;
 	return;
 }
 
@@ -42,19 +40,19 @@ ShruberryCreationForm::~ShruberryCreationForm( void ) {
 /*							Operators					*/
 /********************************************************/
 
-ShruberryCreationForm&	ShruberryCreationForm::operator=(ShruberryCreationForm const & rhs ) {
-
-	if (this != &rhs)
-		this->_target = rhs.getTarget();
-
-	return (*this);
-}
-
+// ShruberryCreationForm&	ShruberryCreationForm::operator=(ShruberryCreationForm const & rhs ) {
+//
+// 	if (this != &rhs)
+// 		this->_target = rhs.getTarget();
+//
+// 	return (*this);
+// }
+//
 /********************************************************/
 /*							Getters						*/
 /********************************************************/
 
-std::string const &	ShruberryCreationForm::getTarget() {
+std::string const &	ShruberryCreationForm::getTarget() const {
 
 	return (this->_target);
 }
@@ -68,9 +66,9 @@ void	ShruberryCreationForm::execute( Bureaucrat const & executor ) const {
 	std::string	file;
 	file = this->_target + "_shrubbery";
 
-	if (executor.getGradeToExec() <= this->_gradeToExec())
+	if (executor.getGrade() <= this->getGradeToExec())
 	{
-		std::ofstream	ofs(filename.c_str());
+		std::ofstream	ofs(file.c_str());
 		if (!ofs)
 		{
 			std::cout << "File can't be open" << std::endl;

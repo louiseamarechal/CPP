@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/10/06 16:49:31 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/10/10 12:44:56 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,10 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp \
 		Bureaucrat.cpp \
-		Form.cpp
+		AForm.cpp \
+		ShruberryCreationForm.cpp
 
-HEADERS = Bureaucrat.hpp Form.hpp
+HEADERS = Bureaucrat.hpp AForm.hpp ShruberryCreationForm.hpp
 
 OBJ = $(SRC:.cpp=.o)
 

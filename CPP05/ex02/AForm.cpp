@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:44:08 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/06 17:20:53 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 12:36:32 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 /********************************************************/
 /*						con/destructors					*/
 /********************************************************/
 
-Form::Form( std::string name, bool sign, int gradeToSign, int gradeToExec) :
+AForm::AForm( std::string name, bool sign, int gradeToSign, int gradeToExec) :
 		_name(name),
 		_signed(sign),
 		_gradeToSign(gradeToSign),
 		_gradeToExec(gradeToExec) {
 
-	std::cout << "Form constructor called" << std::endl;
+	std::cout << "AForm constructor called" << std::endl;
 	return;
 }
 
-Form::Form( Form const & src ) : _name(src.getName()),
+AForm::AForm( AForm const & src ) : _name(src.getName()),
  								_gradeToSign(src.getGradeToSign()),
 								_gradeToExec(src.getGradeToExec()) {
 
@@ -36,9 +36,9 @@ Form::Form( Form const & src ) : _name(src.getName()),
 	return;
 }
 
-Form::~Form( void ) {
+AForm::~AForm( void ) {
 
-	std::cout << "Form destructor called" << std::endl;
+	std::cout << "AForm destructor called" << std::endl;
 	return;
 }
 
@@ -46,7 +46,7 @@ Form::~Form( void ) {
 /*							Operators					*/
 /********************************************************/
 
-Form&	Form::operator=( Form const & rhs ) {
+AForm&	AForm::operator=( AForm const & rhs ) {
 
 	if (this != &rhs)
 		this->_signed = rhs.getSigned();
@@ -54,7 +54,7 @@ Form&	Form::operator=( Form const & rhs ) {
 	return (*this);
 }
 
-std::ostream&	operator<<( std::ostream& os, Form const & rhs ) {
+std::ostream&	operator<<( std::ostream& os, AForm const & rhs ) {
 
 	os << rhs.getName() << ": " << std::endl;
 
@@ -73,22 +73,22 @@ std::ostream&	operator<<( std::ostream& os, Form const & rhs ) {
 /*							Getters						*/
 /********************************************************/
 
-std::string const	Form::getName() const {
+std::string const	AForm::getName() const {
 
 	return (this->_name);
 }
 
-bool	Form::getSigned() const {
+bool	AForm::getSigned() const {
 
 	return (this->_signed);
 }
 
-int	Form::getGradeToSign() const {
+int	AForm::getGradeToSign() const {
 
 	return (this->_gradeToSign);
 }
 
-int	Form::getGradeToExec() const {
+int	AForm::getGradeToExec() const {
 
 	return (this->_gradeToExec);
 }
@@ -97,12 +97,12 @@ int	Form::getGradeToExec() const {
 /*							Functions					*/
 /********************************************************/
 
-void	Form::setSigned( bool answer ) {
+void	AForm::setSigned( bool answer ) {
 
 	this->_signed = answer;
 }
 
-void	Form::beSigned( Bureaucrat& bureaucrat ) {
+void	AForm::beSigned( Bureaucrat& bureaucrat ) {
 
 	if (bureaucrat.getGrade() <= this->_gradeToSign)
 		this->_signed = true;
