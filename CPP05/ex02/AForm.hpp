@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:22:15 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 14:08:30 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:35:36 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class AForm {
 
 			public:
 				virtual const char *what() const throw() {
-					return("Requested grade is too high, bureaucrat can't sign it!");
+					return("Requested grade is too high to take action!");
 				}
 		};
 
@@ -33,7 +33,7 @@ class AForm {
 
 			public:
 				virtual const char *what() const throw() {
-					return("Requested grade is too low, bureaucrat can't sign it!");
+					return("Requested grade is too low to take action!");
 				}
 		};
 

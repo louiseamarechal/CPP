@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:47 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 14:11:24 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:47:16 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ int	main( void ) {
 	ShruberryCreationForm	formS = ShruberryCreationForm("jardin");
 
 	std::cout << std::endl;
+	std::cout << "--------------------------" << std::endl;
+	std::cout << "|       Basique  Info    |" << std::endl;
+	std::cout << "--------------------------" << std::endl;
 	std::cout << formS;
 	std::cout << std::endl;
 	std::cout << antoine;
@@ -28,6 +31,9 @@ int	main( void ) {
 	std::cout << jacinthe;
 	std::cout << std::endl;
 
+	std::cout << "--------------------------" << std::endl;
+	std::cout << "|         Sign Form      |" << std::endl;
+	std::cout << "--------------------------" << std::endl;
 	try {
 		std::cout << "Can Antoine sign the Form ?" << std::endl;
 		formS.beSigned(antoine);
@@ -46,6 +52,26 @@ int	main( void ) {
 		std::cout << std::endl;
 		std::cout << "Can Antoine sign the Form ?" << std::endl;
 		antoine.signForm(formS);
+	}
+	catch(AForm::GradeTooHighException& e) {
+		std::cout << e.what() << std::endl;
+	}
+	catch(AForm::GradeTooLowException& e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << std::endl;
+
+	std::cout << "--------------------------" << std::endl;
+	std::cout << "|      Execute Form      |" << std::endl;
+	std::cout << "--------------------------" << std::endl;
+	try {
+		std::cout << "Can Jacinthe execute the Shruberry Form ?" << std::endl;
+		formS.execute(jacinthe);
+		jacinthe.executeForm(formS);
+		std::cout << std::endl;
+		std::cout << "Can Antoine execute the Shruberry Form ?" << std::endl;
+		antoine.executeForm(formS);
+		formS.execute(antoine);
 	}
 	catch(AForm::GradeTooHighException& e) {
 		std::cout << e.what() << std::endl;

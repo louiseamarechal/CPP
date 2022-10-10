@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:25:14 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 12:42:44 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:41:19 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ class Bureaucrat {
 		void				incrementBureaucrateGrade( void );
 		void				decrementBureaucrateGrade( void );
 		void				signForm( AForm& form );
-		// void				executeForm( AForm const & form );
+		void				executeForm( AForm const & form );
 
 	private:
 		Bureaucrat( void );

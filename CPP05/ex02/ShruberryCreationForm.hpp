@@ -6,16 +6,16 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:11:06 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 14:05:52 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 15:37:12 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef SHRUBERRYCREATIONFORM_HPP
 # define SHRUBERRYCREATIONFORM_HPP
 
-#include <ostream>
-#include "Bureaucrat.hpp"
+#include <iostream>
 #include <fstream>
+#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 

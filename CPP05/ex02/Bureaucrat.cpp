@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:37:26 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 12:38:27 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 14:45:14 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,4 +113,18 @@ void	Bureaucrat::decrementBureaucrateGrade( void ) {
 		throw(GradeTooLowException());
 
 	this->_grade++;
+}
+
+void	Bureaucrat::executeForm( AForm const & form ) {
+
+	if (this->_grade <= form.getGradeToExec())
+	{
+		std::cout << "Bureaucrat " << this->_name << " executed ";
+		std::cout << form.getName() << " form!" << std::endl;
+	}
+	else
+	{
+		std::cout << "Bureaucrat " << this->_name << " can't execute ";
+		std::cout << form.getName() << " form!" << std::endl;
+	}
 }
