@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:16:33 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 16:46:39 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:18:17 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,13 @@ std::string const &	RobotomyRequestForm::getTarget() const {
 
 void	RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
 
+	srand(time(NULL));
 	int	success = rand();
 
 	if (executor.getGrade() <= this->getGradeToExec())
 	{
 		std::cout << "**DRILL NOISE**" << std::endl;
-		if (success == 1)
+		if (success % 2 == 0)
 			std::cout << _target << " was successfully robotised !" << std::endl;
 		else
 			std::cout << _target << " was NOT successfully robotised !" << std::endl;

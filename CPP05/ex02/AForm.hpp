@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:22:15 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 16:43:48 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:17:49 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <time.h>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
