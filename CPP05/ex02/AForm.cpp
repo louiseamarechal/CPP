@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:44:08 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 12:36:32 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:46:22 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ AForm::AForm( std::string name, bool sign, int gradeToSign, int gradeToExec) :
 		_gradeToSign(gradeToSign),
 		_gradeToExec(gradeToExec) {
 
-	std::cout << "AForm constructor called" << std::endl;
+	// std::cout << "AForm constructor called" << std::endl;
 	return;
 }
 
@@ -32,13 +32,13 @@ AForm::AForm( AForm const & src ) : _name(src.getName()),
 
 	*this = src;
 
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	return;
 }
 
 AForm::~AForm( void ) {
 
-	std::cout << "AForm destructor called" << std::endl;
+	// std::cout << "AForm destructor called" << std::endl;
 	return;
 }
 
@@ -107,5 +107,5 @@ void	AForm::beSigned( Bureaucrat& bureaucrat ) {
 	if (bureaucrat.getGrade() <= this->_gradeToSign)
 		this->_signed = true;
 	else
-		throw(GradeTooHighException());
+		throw(GradeTooLowException());
 }

@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:37:26 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/06 14:57:04 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/10 17:47:58 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Bureaucrat::Bureaucrat( void ) : _name(""), _grade(150) {
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name) {
 
-	if (grade < 0)
+	if (grade < 1)
 		throw(GradeTooHighException());
 	else if (grade > 150)
 		throw(GradeTooLowException());
