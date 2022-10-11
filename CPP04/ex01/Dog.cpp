@@ -12,12 +12,10 @@
 
 #include "Dog.hpp"
 
-Dog::Dog( void ) {
+Dog::Dog( void ) : _brain(new Brain) {
 
 	std::cout << "Dog default constructor called" << std::endl;
-
 	this->type = "Dog";
-	this->_brain = new Brain();
 
 	for (int i = 0; i < 2; i++)
 		this->_brain->setIdea(i, "Dog idea");
@@ -25,10 +23,10 @@ Dog::Dog( void ) {
 	return ;
 }
 
-Dog::Dog(Dog const & src) {
+Dog::Dog(Dog const & src) : _brain(new Brain()) {
 
-	*this = src;
 	std::cout << "Dog copy constructor called" << std::endl;
+	*this = src;
 
 	return;
 }
@@ -45,14 +43,27 @@ Dog::~Dog( void ) {
 Dog const	& Dog::operator=(Dog const & rhs) {
 
 	if ( this != &rhs )
-		this->type = getType();
+	{
+		this->type = rhs.getType();
+		*this->_brain = rhs.getBrain();
+	}
 
 	return (*this);
+}
+
+Brain		Dog::getBrain( void ) const {
+
+	return (*this->_brain);
 }
 
 void	Dog::makeSound() const {
 
 	std::cout << "Woof Woof" << std::endl;
+}
+
+void	Dog::setIdea( int index, std::string idea ) {
+
+	this->_brain->setIdea(index, idea);	
 }
 
 void	Dog::printIdeas( void ) const {

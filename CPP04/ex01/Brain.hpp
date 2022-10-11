@@ -26,7 +26,8 @@ class Brain {
 
 		std::string		getIdea(int index) const;
 		void			setIdea(int index, std::string idea);
-		void			printIdeas( void )const;
+		void			printIdeas( void ) const;
+		int				getNbIdeas( void ) const;
 
 	private:
 		std::string		_ideas[100];
