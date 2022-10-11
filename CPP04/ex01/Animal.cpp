@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:31:08 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/04 15:09:37 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:55:11 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Animal::Animal( Animal const & src ) {
 
 Animal::~Animal( void ) {
 
-	std::cout << "Animal deconstructor called" << std::endl;
+	std::cout << "Animal destructor called" << std::endl;
 
 	return;
 }

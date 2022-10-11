@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:34:30 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/04 15:05:04 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:36:24 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Cat : public Animal {
 		void		makeSound() const;
 		void		printIdeas( void ) const;
 		void		setIdea( int index, std::string idea );
-		Brain		getBrain( void ) const;
+		Brain*		getBrain( void ) const;
 
 	private:
 		Brain		*_brain;

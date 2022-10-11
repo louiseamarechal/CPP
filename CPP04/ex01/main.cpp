@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:49:57 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/04 15:11:02 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:12:16 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	main() {
 	std::cout << "Copy Cat ideas after modifying original cat ideas:" << std::endl;
 	c->printIdeas();
 	std::cout << "-------------------------------" << std::endl;
-	
+
 	std::cout << "-------- Copy dog Idea ---------" << std::endl;
 	std::cout << "Copy dog ideas :" << std::endl;
 	cd->printIdeas();

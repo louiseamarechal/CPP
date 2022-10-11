@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 16:40:04 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/04 15:14:00 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:35:57 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Cat::~Cat( void ) {
 
 	delete this->_brain;
 
-	std::cout << "Cat deconstructor called" << std::endl;
+	std::cout << "Cat destructor called" << std::endl;
 
 	return ;
 }
@@ -45,15 +45,15 @@ Cat const	& Cat::operator=( Cat const & rhs ) {
 	if ( this != &rhs )
 	{
 		this->type = rhs.getType();
-		*this->_brain = rhs.getBrain();
+		*this->_brain = *rhs.getBrain();
 	}
 
 	return (*this);
 }
 
-Brain		Cat::getBrain( void ) const {
+Brain*		Cat::getBrain( void ) const {
 
-	return (*this->_brain);
+	return (this->_brain);
 }
 
 void	Cat::makeSound() const {
@@ -63,7 +63,7 @@ void	Cat::makeSound() const {
 
 void	Cat::setIdea( int index, std::string idea ) {
 
-	this->_brain->setIdea(index, idea);	
+	this->_brain->setIdea(index, idea);
 }
 
 void	Cat::printIdeas( void ) const {
