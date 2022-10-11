@@ -29,7 +29,7 @@ Animal::Animal( Animal const & src ) {
 
 Animal::~Animal( void ) {
 
-	std::cout << "Animal deconstructor called" << std::endl;
+	std::cout << "Animal destructor called" << std::endl;
 
 	return;
 }
