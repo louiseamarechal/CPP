@@ -66,7 +66,7 @@ Brain const	& Brain::operator=( Brain const & rhs ) {
 
 Brain::~Brain( void ) {
 
-	std::cout << "Brain deconstructor called" << std::endl;
+	std::cout << "Brain destructor called" << std::endl;
 
 	return;
 }

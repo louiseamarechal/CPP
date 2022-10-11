@@ -25,8 +25,7 @@ class Cat : public Animal {
 
 		Cat const	& operator=(Cat const & rhs);
 		void		makeSound() const;
-		// std::string	getCatBrainIdea(int index) const;
-		void			printIdeas( void ) const;
+		void		printIdeas( void ) const;
 
 	private:
 		Brain		*_brain;
