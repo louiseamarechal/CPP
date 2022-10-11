@@ -30,7 +30,7 @@ Cat::Cat(Cat const & src) {
 
 Cat::~Cat( void ) {
 
-	std::cout << "Cat deconstructor called" << std::endl;
+	std::cout << "Cat destructor called" << std::endl;
 
 	return ;
 }

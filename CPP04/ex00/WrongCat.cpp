@@ -30,7 +30,7 @@ WrongCat::WrongCat(WrongCat const & src) {
 
 WrongCat::~WrongCat( void ) {
 
-	std::cout << "WrongCat deconstructor called" << std::endl;
+	std::cout << "WrongCat destructor called" << std::endl;
 
 	return ;
 }

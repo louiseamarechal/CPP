@@ -30,7 +30,7 @@ Dog::Dog(Dog const & src) {
 
 Dog::~Dog( void ) {
 
-	std::cout << "Dog deconstructor called" << std::endl;
+	std::cout << "Dog destructor called" << std::endl;
 
 	return ;
 }
