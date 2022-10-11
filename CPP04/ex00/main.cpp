@@ -31,8 +31,13 @@ int	main() {
 	std::cout << "Wrong Animal: " << std::endl;
 	const WrongAnimal* beta = new WrongAnimal();
 	std::cout << std::endl;
-	std::cout << "Wrong Cat: " << std::endl;
+	std::cout << "Wrong Cat instantiate with WA: " << std::endl;
 	const WrongAnimal* k = new WrongCat();
+	std::cout << std::endl;
+	std::cout << "Wrong Cat instantiate with WC: " << std::endl;
+	const WrongCat* w = new WrongCat();
+	std::cout << std::endl;
+
 	std::cout << "-------------------------------" << std::endl;
 	std::cout << std::endl;
 
@@ -51,6 +56,8 @@ int	main() {
 	beta->makeSound();
 	std::cout << "Wrong Cat making wrong animal sound: ";
 	k->makeSound();
+	std::cout << "Wrong Cat making wrong cat sound: ";
+	w->makeSound();
 
 	std::cout << std::endl;
 	std::cout << "-------- Deconstructors ---------" << std::endl;
