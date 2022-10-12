@@ -17,13 +17,15 @@ int	main( void ) {
 
 	Bureaucrat	antoine = Bureaucrat("Antoine", 150);
 	Bureaucrat	jacinthe = Bureaucrat("Jacinthe", 1);
-	Form		formA = Form("formA", false, 15, 15);
+	Form		formA = Form("formA", 15, 15);
 
 	std::cout << std::endl;
 	std::cout << formA;
 	std::cout << std::endl;
 
 	try {
+		std::cout << antoine;
+		std::cout << "Can Antoine sign the Form ?" << std::endl;
 		formA.beSigned(antoine);
 	}
 	catch(Form::GradeTooHighException& e) {
@@ -35,7 +37,11 @@ int	main( void ) {
 	std::cout << std::endl;
 
 	try {
+		std::cout << jacinthe;
+		std::cout << "Can Jacinthe sign the Form ?" << std::endl;
 		jacinthe.signForm(formA);
+		std::cout << std::endl;
+		std::cout << "What about Antoine ?" << std::endl;
 		antoine.signForm(formA);
 	}
 	catch(Form::GradeTooHighException& e) {
@@ -45,6 +51,4 @@ int	main( void ) {
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-
 }
-

@@ -51,11 +51,13 @@ int	main( void ) {
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
+	std::cout << "------------------------------------" << std::endl;
 
 	try {
 		Bureaucrat jacinthe = Bureaucrat("Jacinthe", 3);
 
 		std::cout << jacinthe;
+		std::cout << std::endl;
 		std::cout << "Decrementing Jacinthe's grade: " << std::endl;
 		jacinthe.decrementBureaucrateGrade();
 		std::cout << jacinthe;

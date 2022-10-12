@@ -37,7 +37,7 @@ class Form {
 				}
 		};
 
-		Form( std::string name, bool sign, int gradeToSign, int gradeToExec);
+		Form( std::string name, int gradeToSign, int gradeToExec);
 		Form( Form const & src );
 		~Form( void );
 

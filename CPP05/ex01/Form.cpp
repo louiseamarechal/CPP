@@ -16,11 +16,16 @@
 /*						con/destructors					*/
 /********************************************************/
 
-Form::Form( std::string name, bool sign, int gradeToSign, int gradeToExec) :
+Form::Form( std::string name, int gradeToSign, int gradeToExec) :
 		_name(name),
-		_signed(sign),
+		_signed(false),
 		_gradeToSign(gradeToSign),
 		_gradeToExec(gradeToExec) {
+
+	if (gradeToSign < 1 || gradeToExec < 1) 
+		throw(GradeTooHighException());
+	else if (gradeToSign > 150  || gradeToExec > 150)
+		throw(GradeTooLowException());
 
 	std::cout << "Form constructor called" << std::endl;
 	return;
