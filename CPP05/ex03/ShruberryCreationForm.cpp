@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:16:33 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 17:49:10 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:02:32 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ShruberryCreationForm::ShruberryCreationForm( std::string const & target) :
 	AForm("Shruberry", 145, 137), _target(target) {
 
-	// std::cout << "Shruberry constructor called" << std::endl;
+	std::cout << "Shruberry constructor called" << std::endl;
 	return;
 }
 
@@ -27,13 +27,13 @@ ShruberryCreationForm::ShruberryCreationForm( ShruberryCreationForm const & src 
  	AForm("Shruberry", 145, 137), _target(src.getTarget()) {
 	
 	*this = src;
-	// std::cout << "Shruberry copy constructor called" << std::endl;
+	std::cout << "Shruberry copy constructor called" << std::endl;
 	return;
 }
 
 ShruberryCreationForm::~ShruberryCreationForm( void ) {
 
-	// std::cout << "Shruberry destructor called" << std::endl;
+	std::cout << "Shruberry destructor called" << std::endl;
 	return;
 }
 

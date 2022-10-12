@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:04:00 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/12 15:08:51 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/12 16:26:34 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 # define INTERN_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include <string.h>
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShruberryCreationForm.hpp"
 
-class Form;
+class PresidentialPardonForm;
+class RobotomyRequestForm;
+class ShruberryCreationForm;
+class AForm;
 
 class Intern {
 
@@ -26,8 +33,13 @@ class Intern {
         Intern &    operator=( Intern const & rhs );
         ~Intern( void );
 
-        Form*   makeForm( std::string formName, std::string target );
+        AForm*   makeForm( std::string formName, std::string target );
 
-}
+    private:
+        AForm*    _presidentialPardon( std::string target );
+        AForm*    _robotomyRequestForm( std::string target );
+        AForm*    _shruberryCreationForm( std::string target );
+
+};
 
 #endif

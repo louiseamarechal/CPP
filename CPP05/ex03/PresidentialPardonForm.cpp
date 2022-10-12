@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:16:33 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 17:48:46 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:02:19 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 PresidentialPardonForm::PresidentialPardonForm( std::string const & target) :
 	AForm("Presidential", 25, 5), _target(target) {
 
-	// std::cout << "Presidential constructor called" << std::endl;
+	std::cout << "Presidential constructor called" << std::endl;
 	return;
 }
 
@@ -27,13 +27,13 @@ PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & s
  	AForm("Presidential", 25, 5), _target(src.getTarget()) {
 
 	*this = src;
-	// std::cout << "Presidential copy constructor called" << std::endl;
+	std::cout << "Presidential copy constructor called" << std::endl;
 	return;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm( void ) {
 
-	// std::cout << "Presidential destructor called" << std::endl;
+	std::cout << "Presidential destructor called" << std::endl;
 	return;
 }
 

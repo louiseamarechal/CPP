@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:16:33 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 17:48:59 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:02:10 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 RobotomyRequestForm::RobotomyRequestForm( std::string const & target) :
 	AForm("Robotomy", 72, 45), _target(target) {
 
-	// std::cout << "Robotomy constructor called" << std::endl;
+	std::cout << "Robotomy constructor called" << std::endl;
 	return;
 }
 
@@ -27,13 +27,13 @@ RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) :
  	AForm("Robotomy", 72, 45), _target(src.getTarget()) {
 
 	*this = src;
-	// std::cout << "Robotomy copy constructor called" << std::endl;
+	std::cout << "Robotomy copy constructor called" << std::endl;
 	return;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm( void ) {
 
-	// std::cout << "Robotomy destructor called" << std::endl;
+	std::cout << "Robotomy destructor called" << std::endl;
 	return;
 }
 

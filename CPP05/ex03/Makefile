@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/10/10 17:30:32 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/10/12 16:47:17 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,15 @@ SRC =	main.cpp \
 		AForm.cpp \
 		ShruberryCreationForm.cpp \
 		RobotomyRequestForm.cpp \
-		PresidentialPardonForm.cpp
+		PresidentialPardonForm.cpp \
+		Intern.cpp
 
 HEADERS =	Bureaucrat.hpp \
 			AForm.hpp \
 			ShruberryCreationForm.hpp \
 			RobotomyRequestForm.hpp \
-			PresidentialPardonForm.hpp
+			PresidentialPardonForm.hpp \
+			Intern.hpp
 
 OBJ = $(SRC:.cpp=.o)
 

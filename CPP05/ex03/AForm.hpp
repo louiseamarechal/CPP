@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 15:22:15 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 17:40:00 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/12 17:04:00 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class AForm {
 
 		AForm( std::string name, int gradeToSign, int gradeToExec);
 		AForm( AForm const & src );
-		~AForm( void );
+		virtual ~AForm( void );
 
 		AForm&	operator=( AForm const & rhs );
 
