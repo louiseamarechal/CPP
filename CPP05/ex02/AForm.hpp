@@ -39,7 +39,7 @@ class AForm {
 				}
 		};
 
-		AForm( std::string name, bool sign, int gradeToSign, int gradeToExec);
+		AForm( std::string name, int gradeToSign, int gradeToExec);
 		AForm( AForm const & src );
 		~AForm( void );
 

@@ -72,12 +72,10 @@ int	main( void ) {
 	std::cout << "--------------------------" << std::endl;
 	try {
 		std::cout << "Can Jacinthe execute the Shruberry Form ?" << std::endl;
-		formS.execute(jacinthe);
 		jacinthe.executeForm(formS);
 		std::cout << std::endl;
 		std::cout << "Can Antoine execute the Shruberry Form ?" << std::endl;
 		antoine.executeForm(formS);
-		formS.execute(antoine);
 	}
 	catch(AForm::GradeTooHighException& e) {
 		std::cout << e.what() << std::endl;
@@ -131,12 +129,10 @@ int	main( void ) {
 	std::cout << "--------------------------" << std::endl;
 	try {
 		std::cout << "Can Lea execute the Robotomy Form ?" << std::endl;
-		formR.execute(lea);
 		lea.executeForm(formR);
 		std::cout << std::endl;
 		std::cout << "Can Alex execute the Robotomy Form ?" << std::endl;
 		alex.executeForm(formR);
-		formR.execute(alex);
 	}
 	catch(AForm::GradeTooHighException& e) {
 		std::cout << e.what() << std::endl;
@@ -170,10 +166,10 @@ int	main( void ) {
 	std::cout << "--------------------------" << std::endl;
 
 	try {
-		std::cout << "Can Nico sign the Robotomy Form ?" << std::endl;
+		std::cout << "Can Nico sign the Presidential Form ?" << std::endl;
 		nico.signForm(formP);
 		std::cout << std::endl;
-		std::cout << "Can Arthur sign the Robotomy Form ?" << std::endl;
+		std::cout << "Can Arthur sign the Presidential Form ?" << std::endl;
 		arthur.signForm(formP);
 	}
 	catch(AForm::GradeTooHighException& e) {
@@ -189,13 +185,11 @@ int	main( void ) {
 	std::cout << "|      Execute Form      |" << std::endl;
 	std::cout << "--------------------------" << std::endl;
 	try {
-		std::cout << "Can Nico execute the Robotomy Form ?" << std::endl;
-		formP.execute(nico);
-		nico.executeForm(formP);
-		std::cout << std::endl;
-		std::cout << "Can Arthur execute the Robotomy Form ?" << std::endl;
+		std::cout << "Can Arthur execute the Presidential Form ?" << std::endl;
 		arthur.executeForm(formP);
-		formP.execute(arthur);
+		std::cout << std::endl;
+		std::cout << "Can Nico execute the Presidential Form ?" << std::endl;
+		nico.executeForm(formP);
 	}
 	catch(AForm::GradeTooHighException& e) {
 		std::cout << e.what() << std::endl;

@@ -16,9 +16,9 @@
 /*						con/destructors					*/
 /********************************************************/
 
-AForm::AForm( std::string name, bool sign, int gradeToSign, int gradeToExec) :
+AForm::AForm( std::string name, int gradeToSign, int gradeToExec) :
 		_name(name),
-		_signed(sign),
+		_signed(false),
 		_gradeToSign(gradeToSign),
 		_gradeToExec(gradeToExec) {
 

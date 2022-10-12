@@ -17,15 +17,16 @@
 /********************************************************/
 
 ShruberryCreationForm::ShruberryCreationForm( std::string const & target) :
-	AForm("Shruberry", false, 145, 137), _target(target) {
+	AForm("Shruberry", 145, 137), _target(target) {
 
 	// std::cout << "Shruberry constructor called" << std::endl;
 	return;
 }
 
 ShruberryCreationForm::ShruberryCreationForm( ShruberryCreationForm const & src ) :
- 	AForm("Shruberry", false, 145, 137), _target(src.getTarget()) {
-
+ 	AForm("Shruberry", 145, 137), _target(src.getTarget()) {
+	
+	*this = src;
 	// std::cout << "Shruberry copy constructor called" << std::endl;
 	return;
 }
@@ -40,14 +41,14 @@ ShruberryCreationForm::~ShruberryCreationForm( void ) {
 /*							Operators					*/
 /********************************************************/
 
-// ShruberryCreationForm&	ShruberryCreationForm::operator=(ShruberryCreationForm const & rhs ) {
-//
-// 	if (this != &rhs)
-// 		this->_target = rhs.getTarget();
-//
-// 	return (*this);
-// }
-//
+ShruberryCreationForm&	ShruberryCreationForm::operator=(ShruberryCreationForm const & rhs ) {
+
+	if (this != &rhs)
+		this->setSigned(rhs.getSigned());
+		
+	return (*this);
+}
+
 /********************************************************/
 /*							Getters						*/
 /********************************************************/
@@ -60,15 +61,6 @@ std::string const &	ShruberryCreationForm::getTarget() const {
 /********************************************************/
 /*							Functions					*/
 /********************************************************/
-//
-// void	getFileSize( std::ifstream	outfile, int* size ) {
-//
-// 	infile.seekg(0, infile.end); // move position to end of file
-// 	*size = infile.tellg(); // get position number (position nb = filse *size) and store it
-// 	if (*size == 0)
-// 		std::cout << "File is empty" << std::endl;
-// 	infile.seekg(0, infile.beg); // move back to beginning of file
-// }
 
 void	ShruberryCreationForm::execute( Bureaucrat const & executor ) const {
 

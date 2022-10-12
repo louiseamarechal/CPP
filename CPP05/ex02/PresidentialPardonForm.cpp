@@ -17,22 +17,23 @@
 /********************************************************/
 
 PresidentialPardonForm::PresidentialPardonForm( std::string const & target) :
-	AForm("Robotomy", false, 25, 5), _target(target) {
+	AForm("Presidential", 25, 5), _target(target) {
 
-	// std::cout << "Robotomy constructor called" << std::endl;
+	// std::cout << "Presidential constructor called" << std::endl;
 	return;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm const & src ) :
- 	AForm("Robotomy", false, 25, 5), _target(src.getTarget()) {
+ 	AForm("Presidential", 25, 5), _target(src.getTarget()) {
 
-	// std::cout << "Robotomy copy constructor called" << std::endl;
+	*this = src;
+	// std::cout << "Presidential copy constructor called" << std::endl;
 	return;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm( void ) {
 
-	// std::cout << "Robotomy destructor called" << std::endl;
+	// std::cout << "Presidential destructor called" << std::endl;
 	return;
 }
 
@@ -40,13 +41,13 @@ PresidentialPardonForm::~PresidentialPardonForm( void ) {
 /*							Operators					*/
 /********************************************************/
 
-// PresidentialPardonForm&	PresidentialPardonForm::operator=(PresidentialPardonForm const & rhs ) {
-//
-// 	if (this != &rhs)
-// 		this->_target = rhs.getTarget();
-//
-// 	return (*this);
-// }
+PresidentialPardonForm&	PresidentialPardonForm::operator=(PresidentialPardonForm const & rhs ) {
+
+	if (this != &rhs)
+		this->setSigned(rhs.getSigned());
+
+	return (*this);
+}
 //
 /********************************************************/
 /*							Getters						*/

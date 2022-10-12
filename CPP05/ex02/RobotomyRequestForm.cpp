@@ -17,15 +17,16 @@
 /********************************************************/
 
 RobotomyRequestForm::RobotomyRequestForm( std::string const & target) :
-	AForm("Robotomy", false, 72, 45), _target(target) {
+	AForm("Robotomy", 72, 45), _target(target) {
 
 	// std::cout << "Robotomy constructor called" << std::endl;
 	return;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) :
- 	AForm("Robotomy", false, 72, 45), _target(src.getTarget()) {
+ 	AForm("Robotomy", 72, 45), _target(src.getTarget()) {
 
+	*this = src;
 	// std::cout << "Robotomy copy constructor called" << std::endl;
 	return;
 }
@@ -40,13 +41,12 @@ RobotomyRequestForm::~RobotomyRequestForm( void ) {
 /*							Operators					*/
 /********************************************************/
 
-// RobotomyRequestForm&	RobotomyRequestForm::operator=(RobotomyRequestForm const & rhs ) {
-//
-// 	if (this != &rhs)
-// 		this->_target = rhs.getTarget();
-//
-// 	return (*this);
-// }
+RobotomyRequestForm&	RobotomyRequestForm::operator=(RobotomyRequestForm const & rhs ) {
+
+	if (this != &rhs)
+		this->setSigned(rhs.getSigned());
+	return (*this);
+}
 //
 /********************************************************/
 /*							Getters						*/
