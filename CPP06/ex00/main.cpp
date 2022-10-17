@@ -6,26 +6,11 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:16:32 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/17 16:08:44 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:41:54 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-
-// bool	isFormatOk( char * argv ) {
-//
-// 	int	i = 0;
-//
-// 	for (; argv[i]; i++);
-// 	{
-// 		if ()
-// 	}
-//
-// 	if ( i == 1 )
-// 		return ( true );
-//
-// 	return ( false );
-// }
 
 bool	isDigit( char c )
 {
