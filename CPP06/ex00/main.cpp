@@ -6,95 +6,34 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:16:32 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/17 17:41:54 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:28:03 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Convert.hpp"
 
-bool	isDigit( char c )
-{
-	if ( c >= '0' && c <= '9' )
-		return ( true );
-	return ( false );
-}
+int	findType( char *argv ) {
 
-bool	isInt( char *argv ) {
+	if ( isInt(argv) )
+		return ( 'i' );
+	else if ( isChar(argv) )
+		return ( 'c' );
+	else if ( isDouble(argv) )
+		return ( 'd' );
+	else if ( isFloat(argv) )
+		return ( 'f' );
 
-	int	i = 0;
-
-	for (; argv[i]; i++);
-
-	if ( (i == 1) && isDigit(*argv) )
-		return ( true );
-
-	return ( false );
-}
-
-bool	isDouble( char *argv ) {
-
-	int	i = 0;
-
-	if ( !isDigit(argv[i]) )
-		return ( false );
-	while ( isDigit(argv[i]) )
-		i++;
-	if ( argv[i] == 46 && isDigit(argv[i + 1]))
-		i++;
-	else
-		return ( false );
-	while ( argv[i] )
-	{
-		if ( isDigit(argv[i]) )
-			i++;
-		else
-			return ( false );
-	}
-
-	return ( true );
-}
-
-bool	isChar( char *argv ) {
-
-	int	i = 0;
-
-	for (; argv[i]; i++);
-
-	if ( i != 1 )
-		return ( false );
-
-	if ( (*argv >= 65 && *argv <= 90) || (*argv >= 97 && *argv <= 122) )
-		return ( true );
-
-	return ( false );
-}
-
-bool	isFloat( char *argv ) {
-
-	int	i = 0;
-
-	if ( !isDigit(argv[i]) )
-		return ( false );
-	while ( isDigit(argv[i]) )
-		i++;
-	if ( argv[i] == 46 && isDigit(argv[i + 1]))
-		i++;
-	else
-		return ( false );
-	while ( argv[i] && argv[i] != 'f' )
-	{
-		if ( isDigit(argv[i]) )
-			i++;
-		else
-			return ( false );
-	}
-	if ( argv[i] == 'f' && argv[i + 1] == '\0' )
-		return ( true );
-
-	return ( false );
+	return (0);
 }
 
 int	main(int argc, char **argv) {
+
+	int i;
+
+	std::cout << "limits char: " << (int)std::numeric_limits<char>::min() << " - " << (int)std::numeric_limits<char>::max() << std::endl;
+	std::cout << "limits int: " << std::numeric_limits<int>::min() << " - " << std::numeric_limits<int>::max() << std::endl;
+	std::cout << "limits float: " << std::numeric_limits<float>::min() << " - " << std::numeric_limits<float>::max() << std::endl;
+	std::cout << "limits double: " << std::numeric_limits<double>::min() << " - " << std::numeric_limits<double>::max() << std::endl;
 
 	if ( argc != 2 )
 	{
@@ -105,12 +44,20 @@ int	main(int argc, char **argv) {
 	if ( !isInt(argv[1]) && !isChar(argv[1]) && !isDouble(argv[1]) && !isFloat(argv[1]) )
 		std::cout << "Wrong input format !" << std::endl;
 
-	if ( isInt(argv[1]) == true )
-		std::cout << argv[1] << " has type int" << std::endl;
-	else if ( isChar(argv[1]) )
-		std::cout << argv[1] << " has type char" << std::endl;
-	else if ( isDouble(argv[1]) )
-		std::cout << argv[1] << " has type double" << std::endl;
-	else if ( isFloat(argv[1]) )
-		std::cout << argv[1] << " has type float" << std::endl;
+	i = findType(argv[1]);
+
+	switch ( i ) {
+		case 'i' :
+			printInt(argv[1]);
+			break;
+		case 'c' :
+			printChar(argv[1]);
+			break;
+		case 'f' :
+			printFloat(argv[1]);
+			break;
+		case 'd' :
+			printDouble(argv[1]);
+			break;
+	}
 }

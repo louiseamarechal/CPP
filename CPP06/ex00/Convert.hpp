@@ -5,24 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 16:09:26 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/13 16:11:58 by lmarecha         ###   ########.fr       */
+/*   Created: 2022/10/18 16:49:35 by lmarecha          #+#    #+#             */
+/*   Updated: 2022/10/18 16:58:15 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef CONVERT_HPP
 # define CONVERT_HPP
 
-# include <iostream>
+#include <iostream>
+#include <limits>
+#include <cstdio>
 
-class Convert {
+bool	isInt( char *argv );
+bool	isDouble( char *argv );
+bool	isChar( char *argv );
+bool	isFloat( char *argv );
 
-	public:
-		Convert( void );
-		Convert( Convert const & src );
-		~Convert( void );
-
-		Convert &	operator=( Convert const & rhs );
-}
+void	printInt( char *argv );
+void	printDouble( char *argv );
+void	printFloat( char *argv );
+void	printChar( char *argv );
 
 #endif

@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/10/13 16:16:19 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/10/18 16:54:01 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp \
-		# Convert.cpp
+		DataType.cpp \
+		PrintData.cpp
 
-# HEADERS =	Convert.hpp \
+HEADERS =	Convert.hpp 
 
 OBJ = $(SRC:.cpp=.o)
 
