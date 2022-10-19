@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:44:41 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/18 16:58:01 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/19 11:16:51 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,23 @@ static bool	isDigit( char c ) {
 
 	if ( c >= '0' && c <= '9' )
 		return ( true );
+	return ( false );
+}
+
+bool	isNan( char *argv ) {
+
+	if ( "nan" == std::string( argv ) || "nanf" == std::string( argv ) )
+		return ( true );
+	return ( false );
+}
+
+bool	isInf( char *argv ) {
+
+	if ( "inf" == std::string( argv ) || "-inf" == std::string( argv ) ||
+		"+inf" == std::string( argv ) || "inff" == std::string( argv ) ||
+		"+inff" == std::string( argv ) || "-inff" == std::string( argv ))
+		return ( true );
+
 	return ( false );
 }
 
