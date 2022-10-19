@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:10:09 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/12 17:04:39 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/19 11:34:05 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Intern::Intern( void ) {
 }
 
 Intern::Intern( Intern const & src ) {
-    
+
     *this = src;
     std::cout << "Intern copy constructor called" << std::cout;
 
@@ -78,9 +78,9 @@ AForm*  Intern::makeForm( std::string formName, std::string target ) {
         {
             AForm* form = ( this->*fctPtr[i] )( target );
             std::cout << "Intern creates " << form->getName() << std::endl;
-            
+
             return (form);
-        }    
+        }
     }
 
     return (NULL);
