@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:11:06 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 17:20:57 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:16:09 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class PresidentialPardonForm : public AForm {
 		PresidentialPardonForm&	operator=( PresidentialPardonForm const & rhs );
 		PresidentialPardonForm( void );
 
-		std::string const &	_target;
+		std::string	_target;
 };
 
 #endif

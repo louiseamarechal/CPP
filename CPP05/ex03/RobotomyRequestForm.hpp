@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:22:16 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 16:23:39 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:16:13 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class RobotomyRequestForm : public AForm {
 		RobotomyRequestForm&	operator=( RobotomyRequestForm const & rhs );
 		RobotomyRequestForm( void );
 
-		std::string const &	_target;
+		std::string	_target;
 };
 
 #endif

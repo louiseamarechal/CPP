@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:16:33 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 17:49:10 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/19 11:57:46 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ShruberryCreationForm::ShruberryCreationForm( std::string const & target) :
 
 ShruberryCreationForm::ShruberryCreationForm( ShruberryCreationForm const & src ) :
  	AForm("Shruberry", 145, 137), _target(src.getTarget()) {
-	
+
 	*this = src;
 	// std::cout << "Shruberry copy constructor called" << std::endl;
 	return;
@@ -45,7 +45,7 @@ ShruberryCreationForm&	ShruberryCreationForm::operator=(ShruberryCreationForm co
 
 	if (this != &rhs)
 		this->setSigned(rhs.getSigned());
-		
+
 	return (*this);
 }
 
@@ -80,6 +80,7 @@ void	ShruberryCreationForm::execute( Bureaucrat const & executor ) const {
 			std::cout << "File can't be open" << std::endl;
 			return;
 		}
+		std::cout << executor.getName() << " executed the form." << std::endl;
 		outfile.close();
 		treeFile.close();
 	}

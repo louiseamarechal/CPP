@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:15:47 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/19 11:43:16 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/19 11:55:25 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ int	main( void ) {
 	std::cout << std::endl;
 
 	try {
-		std::cout << "Can Jacinthe sign the presidential Form ?" << std::endl;
-		jacinthe.signForm(*ppf);
+		std::cout << "Can Jacinthe sign the shruberry Form ?" << std::endl;
+		jacinthe.signForm(*scf);
+		std::cout << "Can Jacinthe execute the shruberry Form ?" << std::endl;
+		scf->execute(jacinthe);
 		std::cout << std::endl;
-		std::cout << "Can Antoine sign the shruberry Form ?" << std::endl;
-		scf->beSigned(antoine);
+		std::cout << "Can Antoine sign the presidential Form ?" << std::endl;
+		ppf->beSigned(antoine);
 	}
 	catch(AForm::GradeTooHighException& e) {
 		std::cout << e.what() << std::endl;

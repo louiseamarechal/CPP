@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 17:11:06 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/10 15:37:12 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:13:42 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class ShruberryCreationForm : public AForm {
 		ShruberryCreationForm&	operator=( ShruberryCreationForm const & rhs );
 		ShruberryCreationForm( void );
 
-		std::string const &	_target;
+		std::string _target;
 };
 
 #endif
