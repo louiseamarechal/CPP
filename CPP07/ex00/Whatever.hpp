@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 15:14:12 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/21 16:42:55 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:49:47 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ template< typename T >
 void        swap( T a, T b );
 
 template< typename T >
-T const &   min( T const & x, T const & y );
+T const &   mymin( T const & x, T const & y );
 
 template< typename T >
-T const &   max( T const & x, T const & y );
+T const &   mymax( T const & x, T const & y );
 
 #endif
