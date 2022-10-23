@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Whatever.hpp                                       :+:      :+:    :+:   */
+/*   Iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: louisea <louisea@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/21 15:14:12 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/23 22:04:21 by louisea          ###   ########.fr       */
+/*   Created: 2022/10/23 22:03:29 by louisea           #+#    #+#             */
+/*   Updated: 2022/10/23 22:08:26 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+# ifndef ITER_HPP
+# define ITER_HPP
 
 #include <iostream>
 
@@ -28,12 +28,6 @@
 #define BOLDBLUE    "\033[1m\033[34m"
 
 template< typename T >
-void        swap( T a, T b );
-
-template< typename T >
-T const &   mymin( T const & x, T const & y );
-
-template< typename T >
-T const &   mymax( T const & x, T const & y );
+void	iter( T &a, int size, void fct(T *a) );
 
 #endif
