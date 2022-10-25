@@ -6,11 +6,11 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/10/25 18:11:23 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/10/25 18:10:40 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Iter
+NAME = Array
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
