@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:35:03 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/27 11:16:49 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/27 14:46:32 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,16 @@ Array< T > & Array< T >::operator=( Array< T > const & rhs ) {
 }
 
 template< typename T >
-T &    Array< T >::operator[]( int index ) const {
+const T &    Array< T >::operator[]( int index ) const {
+
+    if ( index < 0 || index > this->size() )
+        throw(IndexException());
+    else
+        return (this->_array[index]);
+}
+
+template< typename T >
+T &    Array< T >::operator[]( int index ) {
 
     if ( index < 0 || index > this->size() )
         throw(IndexException());
