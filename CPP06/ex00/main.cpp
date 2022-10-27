@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 16:16:32 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/19 11:18:57 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:51:26 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ int	findType( char *argv ) {
 int	main(int argc, char **argv) {
 
 	int i;
-
-	// std::cout << "limits char: " << (int)std::numeric_limits<char>::min() << " / " << (int)std::numeric_limits<char>::max() << std::endl;
-	// std::cout << "limits int: " << std::numeric_limits<int>::min() << " / " << std::numeric_limits<int>::max() << std::endl;
-	// std::cout << "limits float: " << std::numeric_limits<float>::min() << " / " << std::numeric_limits<float>::max() << std::endl;
-	// std::cout << "limits double: " << std::numeric_limits<double>::min() << " / " << std::numeric_limits<double>::max() << std::endl;
 
 	if ( argc != 2 )
 	{

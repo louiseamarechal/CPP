@@ -6,11 +6,27 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:44:41 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/19 11:16:51 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:13:19 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
+
+bool	isIntOF( char * argv )
+{
+	std::string max = "2147483647";
+	std::string min = "2147483648";
+
+	if ( max.compare(argv) < 0 )
+		return ( true );
+	if (*argv == '-')
+	{
+		argv++;
+		if ( min.compare(argv) < 0 )
+			return ( true );
+	}
+	return ( false );
+}
 
 static bool	isDigit( char c ) {
 
@@ -85,10 +101,18 @@ bool	isChar( char *argv ) {
 
 	int	i = 0;
 
+	if (*argv == 39)
+		argv++;
+
 	for (; argv[i]; i++);
 
 	if ( i != 1 )
-		return ( false );
+	{
+		if ( i == 2 && argv[i - 1] == 39)
+			i -= 2 ;
+		else
+			return ( false );
+	}
 
 	if ( *argv > 32 && *argv <= 126 )
 		return ( true );
