@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:14:07 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/26 18:08:16 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:26:51 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class Array {
         Array< T >( unsigned int n );
         Array< T >( Array< T > const & src );
         
-        Array< T > const & operator=( Array< T > const & rhs );
-        Array< T >&    Array::operator[]( int index );
+        Array< T > & operator=( Array< T > const & rhs );
+        T & operator[]( int index ) const;
 
         ~Array( void );
 
@@ -46,6 +46,7 @@ class Array< T >::IndexException : public std::exception {
         virtual const char* what() const throw();
 };
     
+template < typename T >
 std::ostream&	operator<<( std::ostream& os, Array< T > const & rhs );
 
 #include "Array.tpp"

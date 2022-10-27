@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:35:03 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/26 18:08:16 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/27 11:16:49 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ template< typename T >
 Array< T >::Array( void ) : _array(new T[0]), _size(0) {}
 
 template< typename T >
-Array< T >::Array( unsigned int n ) : _arrays(new T[n]), _size(n) {}
+Array< T >::Array( unsigned int n ) : _array(new T[n]), _size(n) {}
 
 template< typename T >
-Array< T >::Array( Array< T > const & rhs ) : _array(new T[rhs.size()]) {
+Array< T >::Array( Array< T > const & src ) : _array(new T[src.size()]) {
 
     *this = src;
 }
@@ -28,24 +28,24 @@ Array< T >::Array( Array< T > const & rhs ) : _array(new T[rhs.size()]) {
 template< typename T >
 Array< T >::~Array( void ) {
 
-    delete [] array;
+    delete [] this->_array;
     return;
 }
 
 template< typename T >
-Array< T > const & Array< T >::operator=( Array< T > const & rhs ) {
+Array< T > & Array< T >::operator=( Array< T > const & rhs ) {
 
     if (this != &rhs)
     {
-        for (int i = 0; i < this.size(); i++)
-            this->_array[i] = rhs->_array[i];
+        for (int i = 0; i < this->size(); i++)
+            this->_array[i] = rhs._array[i];
     }
 
     return (*this);
 }
 
 template< typename T >
-Array< T >&    Array< T >::operator[]( int index ) {
+T &    Array< T >::operator[]( int index ) const {
 
     if ( index < 0 || index > this->size() )
         throw(IndexException());
@@ -59,12 +59,14 @@ std::ostream&	operator<<( std::ostream& os, Array< T > const & rhs ) {
     for (int i = 0; i < rhs.size(); i++)
     {
         try {
-            std::cout << this->_array[i] << std::endl;
+            std::cout << rhs[i] << std::endl;
         }
         catch (std::exception& e) {
             std::cout << e.what() << std::endl;
         }
     }
+
+    return (os);
 }
 
 template< typename T >
