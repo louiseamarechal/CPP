@@ -6,9 +6,14 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 17:07:13 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/19 18:02:52 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/31 11:38:49 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+ // Dynamic cast is executed at runtime, not compile time. Because this is a run-time cast,
+ // it is useful especially when combined with polymorphic classes. In fact, in certain
+ // cases the classes must be polymorphic in order for the cast to be legal.
+
 
 #include "Base.hpp"
 

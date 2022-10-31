@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 16:25:39 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/19 16:40:36 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/31 11:29:29 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main( void ) {
 
-	Data*		data = new Data;
+	Data*		data = new Data();
 	uintptr_t	UintData = serialize(data);
 
 	std::cout << "Data : " << data << std::endl;

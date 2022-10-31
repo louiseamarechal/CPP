@@ -6,14 +6,14 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/10/19 17:40:08 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/10/31 11:34:47 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = type
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC =	main.cpp \
 		Base.cpp
@@ -25,7 +25,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADERS)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 	/bin/rm -f $(OBJ)
@@ -33,9 +33,10 @@ clean :
 fclean : clean
 	/bin/rm -f $(NAME)
 
-%.o:%.cpp $(HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+# %.o:%.cpp $(HEADERS)
+# 	$(CXX) $(CXFLAGS) -c $< -o $@
 
-re: fclean all
+re: fclean 
+	make all
 
 .PHONY: all clean fclean re

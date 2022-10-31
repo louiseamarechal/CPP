@@ -6,11 +6,13 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 16:45:46 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/27 16:25:10 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/10/31 11:37:20 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
+
+// Static cast is done at compile time. It will only perform the cast if the types are related. 
 
 void	printNan( void ) {
 
