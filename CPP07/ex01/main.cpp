@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 22:03:08 by louisea           #+#    #+#             */
-/*   Updated: 2022/10/25 17:22:30 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/11/02 12:22:32 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	printContent( T a ) {
 template< typename T >
 void	iter( T *a, int size, void (*fct)(T a) ) {
 
-	;
 	for ( int i = 0; i < size; i++ )
 		fct(a[i]);
 }
@@ -29,7 +28,7 @@ void	iter( T *a, int size, void (*fct)(T a) ) {
 int	main ( void ) {
 
 	int			x[4] 		= { 1, 2, 3, 4 };
-	std::string	strTab[4]	= { "Hello", "Bonjour", "Hola", "NULL" };
+	std::string	strTab[3]	= { "Hello", "Bonjour", "Hola" };
 	char		str[]		= "Comment ca va ?";
 
 	std::cout << BOLDVIOLET << "-----ITER ON INT-------" << RESET << std::endl;
@@ -39,7 +38,7 @@ int	main ( void ) {
 	
 	std::cout << BOLDVIOLET << "-----------------------" << RESET << std::endl;
 	std::cout << BOLDVIOLET << "-----ITER ON STRING----" << RESET << std::endl;
-	std::cout << MAGENTA << "std::string	strTab[4] = { 'Hello', 'Bonjour', 'Hola', 'NULL' };" << RESET << std::endl;
+	std::cout << MAGENTA << "std::string	strTab[4] = { 'Hello', 'Bonjour', 'Hola' };" << RESET << std::endl;
 	
 	iter(strTab, 3, printContent);
 	
