@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:35:03 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/11/02 14:29:53 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:43:26 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ template< typename T >
 Array< T >::Array( void ) : _array(new T[0]), _size(0) {}
 
 template< typename T >
-Array< T >::Array( unsigned int n ) : _array(new T[n]), _size(n) {}
+Array< T >::Array( unsigned int n ) : _array(new T[n]), _size(n) {
+
+    for ( unsigned int i = 0; i < n; i++ )
+        _array[i] = T();
+}
 
 template< typename T >
 Array< T >::Array( Array< T > const & src ) : _array(new T[src.size()]), _size(src.size()) {
@@ -37,12 +41,6 @@ Array< T > & Array< T >::operator=( Array< T > const & rhs ) {
 
     if (this != &rhs)
     {
-        // if (this->_size == 0 && rhs.size() > 0 )
-        // {
-            
-        // }
-        // else if (this->_size == rhs.size())
-        // {
             if ( this->_size != 0 )
                 delete [] this->_array;
             
@@ -50,7 +48,6 @@ Array< T > & Array< T >::operator=( Array< T > const & rhs ) {
 
             for (int i = 0; i < rhs.size(); i++)
                 this->_array[i] = rhs._array[i];
-        // }
     }
 
     return (*this);
@@ -59,7 +56,7 @@ Array< T > & Array< T >::operator=( Array< T > const & rhs ) {
 template< typename T >
 const T &    Array< T >::operator[]( int index ) const {
 
-    if ( index < 0 || index > this->size() )
+    if ( index < 0 || index >= this->size() )
         throw(IndexException());
     else
         return (this->_array[index]);
@@ -68,7 +65,7 @@ const T &    Array< T >::operator[]( int index ) const {
 template< typename T >
 T &    Array< T >::operator[]( int index ) {
 
-    if ( index < 0 || index > this->size() )
+    if ( index < 0 || index >= this->size() )
         throw(IndexException());
     else
         return (this->_array[index]);

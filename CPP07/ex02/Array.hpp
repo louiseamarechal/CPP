@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:14:07 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/27 15:06:12 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/11/02 15:37:39 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ARRAY_HPP
 
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 #define RESET       "\033[0m"
 #define CYAN        "\033[36m"
