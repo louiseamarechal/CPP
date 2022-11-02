@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 16:35:03 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/10/27 14:46:32 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/11/02 14:29:53 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ template< typename T >
 Array< T >::Array( unsigned int n ) : _array(new T[n]), _size(n) {}
 
 template< typename T >
-Array< T >::Array( Array< T > const & src ) : _array(new T[src.size()]) {
+Array< T >::Array( Array< T > const & src ) : _array(new T[src.size()]), _size(src.size()) {
 
     *this = src;
 }
@@ -37,8 +37,20 @@ Array< T > & Array< T >::operator=( Array< T > const & rhs ) {
 
     if (this != &rhs)
     {
-        for (int i = 0; i < this->size(); i++)
-            this->_array[i] = rhs._array[i];
+        // if (this->_size == 0 && rhs.size() > 0 )
+        // {
+            
+        // }
+        // else if (this->_size == rhs.size())
+        // {
+            if ( this->_size != 0 )
+                delete [] this->_array;
+            
+            this->_array = new T[rhs.size()];
+
+            for (int i = 0; i < rhs.size(); i++)
+                this->_array[i] = rhs._array[i];
+        // }
     }
 
     return (*this);

@@ -6,7 +6,7 @@
 #    By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 15:16:35 by lmarecha          #+#    #+#              #
-#    Updated: 2022/11/02 12:26:06 by lmarecha         ###   ########.fr        #
+#    Updated: 2022/11/02 14:03:08 by lmarecha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,10 @@ NAME = Template
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+
+ifeq ($(DEBUG), 1)
+	CXXFLAGS += -g
+endif
 
 SRC =	main.cpp
 
