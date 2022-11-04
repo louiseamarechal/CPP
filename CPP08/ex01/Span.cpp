@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:38:11 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/11/03 18:30:00 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/11/04 16:25:03 by louisea          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,37 @@ void    Span::addNumber( int i ) {
         this->_N.push_back(i);
 }
 
-
-int     Span::longestSpan( void ) const {
+int		Span::longestSpan( void ) const {
 
     if ( this->_N.size() <= 1 )
         throw( NotEnoughElementsException() );
-        
+
     int min = *std::min_element(this->_N.begin(), this->_N.end());
     int max = *std::max_element(this->_N.begin(), this->_N.end());
 
     return (max - min);
 }
 
+int		Span::shortestSpan( void ) const {
 
+	int					diff;
+	unsigned long int	i;
+	std::vector< int >	sortedN = this->_N;
+
+	if ( this->_N.size() <= 1 )
+		throw( NotEnoughElementsException() );
+
+	std::sort (sortedN.begin(), sortedN.end());
+	diff = sortedN[1] - sortedN[0];
+
+	for ( i = 1; i < (sortedN.size() - 1); i++ )
+	{
+		if ( (sortedN[i + 1] - sortedN[i]) < diff)
+			diff = sortedN[i + 1] - sortedN[i];
+	}
+
+	return (diff);
+}
 
 /************************************************/
 /*                  GETTERS                     */
