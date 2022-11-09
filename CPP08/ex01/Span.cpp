@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:38:11 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/11/04 16:25:03 by louisea          ###   ########.fr       */
+/*   Updated: 2022/11/08 16:03:13 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ void    Span::addNumber( int i ) {
         this->_N.push_back(i);
 }
 
+void    Span::addNumbers( std::vector< int >::iterator start, std::vector< int >::iterator end, int n ) {
+
+    for (; start != end; start++)
+        this->addNumber( *start + n++ );
+}
+
 int		Span::longestSpan( void ) const {
 
     if ( this->_N.size() <= 1 )
@@ -105,4 +111,19 @@ std::vector< int >    Span::getN( void ) const {
 unsigned int    Span::getMax( void ) const {
 
     return (this->_max);
+}
+
+/************************************************/
+/*                 NON-MEMBER                   */
+/************************************************/
+
+std::ostream&   operator<<( std::ostream& os, const Span& rhs )
+{
+    for ( unsigned int i = 0; i < rhs.getN().size(); i++ )
+    {
+        os << rhs.getN()[i];
+        if ( i != rhs.getN().size() - 1 )
+            os << " | ";
+    }
+    return (os);
 }
