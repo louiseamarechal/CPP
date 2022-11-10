@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:23:19 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/11/08 16:03:36 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:18:20 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Span {
         class TooMuchElementsException;
         class NotEnoughElementsException;
 
+        Span( void );
         Span( unsigned int N );
         Span( Span const & src );
 
@@ -39,7 +40,6 @@ class Span {
         int                     longestSpan( void ) const;
 
     private:
-        Span( void );
         std::vector< int >      _N;
         unsigned int            _max;
 
@@ -49,7 +49,7 @@ class Span::TooMuchElementsException : public std::exception {
 
     public:
         virtual const char* what() const throw() {
-            return("You container is full, you can't add anymore elements");
+            return("You container is full, you can't add new elements");
         };
 };
 

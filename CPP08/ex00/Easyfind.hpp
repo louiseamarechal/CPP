@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:51:31 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/11/02 17:05:47 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:06:51 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define EASYFIND_HPP
 
 #include <iostream>
+#include <algorithm>
 #include <list>
 
 template < typename T >
-void    easyfind( T a, int i );
+typename T::const_iterator    easyFind( T a, int i );
 
 class NoMatchException : public std::exception {
 

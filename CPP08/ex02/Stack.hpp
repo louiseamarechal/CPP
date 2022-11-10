@@ -6,7 +6,7 @@
 /*   By: lmarecha <lmarecha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:11:01 by lmarecha          #+#    #+#             */
-/*   Updated: 2022/11/09 17:52:43 by lmarecha         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:10:32 by lmarecha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class MutantStack : public std::stack< T > {
     public:
 
         typedef typename std::stack< T >::container_type::iterator iterator;
+        typedef typename std::stack< T >::container_type::const_iterator const_iterator;
 
         MutantStack< T >(void);
         MutantStack< T >( MutantStack< T > const & src );
