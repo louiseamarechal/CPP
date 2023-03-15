@@ -51,7 +51,8 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "list": "cpp"
     },
     "workbench.colorTheme": "Kimbie Dark",
     "workbench.preferredLightColorTheme": "Default Dark+",
