@@ -31,12 +31,8 @@ bool	isDateOk(std::string date)
 	return (true);
 }
 
-bool	isValueOk(std::string file, float value)
+bool	isValueOk(float value)
 {
-	if (file.empty())
-		return (false);
-	if (file == "data.csv")
-		return (true);
 	if (value < 0)
 	{
 		std::cout << "Error: not a positive number." << std::endl;
@@ -75,13 +71,90 @@ std::map<std::string, float>	parseDatabase(std::string file) {
 	return (exchMap);
 }
 
-/***********************************************************************************************/
-	// TO SEPARATE LINES OF .TXT FILE :
-		// key = line.substr(0, line.find('|', 0) - 1);
-		// std::stringstream ss(line.substr(line.find('|', 0) + 2), line.find('\n', 0));
-		// ss >> value;
+std::string	findLastAvailableRate(std::map<std::string, float> exchMap, std::string date) {
 
-/***********************************************************************************************/
+	std::map<std::string, float>::iterator	it;
+
+	for (it = exchMap.begin(); it != exchMap.end(); it++)
+	{
+		// std::cout << "it->first: " << it->first << " | date: " << date << std::endl;
+		// std::cout << "it->first.compare(0, 8, date, 0, 8) = " << it->first.compare(0, 8, date, 0, 8) << std::endl;
+		if (it->first.compare(0, 8, date, 0, 8) == 0)
+		{
+			std::cout << "We Made it !!" << std::endl;
+			while (it->first.compare(date) != 0)
+			{
+				if (date[9] <= '9')
+					date[9] -= 1;
+				if (date[9] == '0')
+				{
+					if (date[8] == '1')
+						date[8] = '0';
+					else
+						date[8] -= 1;
+					date[9] = '9';
+				}
+			}
+			return (date);
+		}
+	}
+	return (NULL);
+}
+
+float	multiplyValues(std::string date, float bcValue, std::map<std::string, float> exchMap) {
+
+	std::map<std::string, float>::iterator	it;
+
+	for (it = exchMap.begin(); it != exchMap.end(); it++)
+	{
+		std::cout << "it->first: " << it->first << " | date: " << date << std::endl;
+		if (it->first == date)
+			return (bcValue * it->second);
+	}
+
+	date = findLastAvailableRate(exchMap, date);
+
+	for (it = exchMap.begin(); it != exchMap.end(); it++)
+	{
+		if (it->first == date)
+			return (bcValue * it->second);
+	}
+
+	return (-1);
+}
+
+
+void	getResult(std::map<std::string, float> exchMap, std::string file) {
+
+	std::ifstream	ifs;
+	float 			value;
+	std::string		date;
+	float			result;
+
+	ifs.open(file, std::ifstream::in);
+
+	if (!ifs.is_open())
+	{
+		std::cout << "Error: file can't be open !" << std::endl;
+		return;
+	}
+
+	for( std::string line; std::getline(ifs, line);)
+	{
+		date = line.substr(0, line.find('|', 0) - 1);
+		if (date != "date")
+		{
+			std::stringstream ss(line.substr(line.find('|', 0) + 2), line.find('\n', 0));
+			ss >> value;
+			if (isValueOk(value) && isDateOk(date))
+			{
+				result = multiplyValues(date, value, exchMap);
+				std::cout << date << " => " << value << " = " << result << std::endl;
+			}
+		}
+	}
+
+}
 
 // 1. Parse the Exchange Rate file
 //		- Check that the data are correct
