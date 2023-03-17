@@ -51,7 +51,7 @@ std::string	findLastAvailableRate(std::map<std::string, float> exchMap, std::str
 			return (date);
 		}
 	}
-	return (NULL);
+	return (date);
 }
 
 float	multiplyValues(std::string date, float bcValue, std::map<std::string, float> exchMap) {
@@ -60,7 +60,6 @@ float	multiplyValues(std::string date, float bcValue, std::map<std::string, floa
 
 	for (it = exchMap.begin(); it != exchMap.end(); it++)
 	{
-		std::cout << "it->first: " << it->first << " | date: " << date << std::endl;
 		if (it->first == date)
 			return (bcValue * it->second);
 	}
@@ -70,7 +69,10 @@ float	multiplyValues(std::string date, float bcValue, std::map<std::string, floa
 	for (it = exchMap.begin(); it != exchMap.end(); it++)
 	{
 		if (it->first == date)
+		{
+			std::cout << "[multiplyValues] -> date: " << date << " | it->second: " << it->second << std::endl;
 			return (bcValue * it->second);
+		}
 	}
 
 	return (-1);
