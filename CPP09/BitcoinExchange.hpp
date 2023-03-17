@@ -7,6 +7,7 @@
 #include <cfloat>
 #include <iostream>
 #include <sstream>
+#include "utils.hpp"
 
 std::map<std::string, float>	parseDatabase(std::string file);
 // bool							checkFileFormat();

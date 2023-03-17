@@ -8,9 +8,11 @@ ifeq ($(DEBUG), 1)
 endif
 
 SRC =	main.cpp \
-		BitcoinExchange.cpp
+		BitcoinExchange.cpp \
+		utils.cpp
 
-HEADERS =	BitcoinExchange.hpp
+HEADERS =	BitcoinExchange.hpp \
+			utils.hpp
 
 OBJ = $(SRC:.cpp=.o)
 

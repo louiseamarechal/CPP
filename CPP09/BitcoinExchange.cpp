@@ -1,51 +1,5 @@
 #include "BitcoinExchange.hpp"
 
-bool	isDateOk(std::string date)
-{
-	std::string				year;
-	std::string				month;
-	std::string				day;
-	std::string::iterator	it;
-
-	if (date.empty())
-	{
-		std::cout << "Error: bad input => " << date << std::endl;
-		return (false);
-	}
-
-	for (it = date.begin(); *it != '-'; it++)
-		year += *it;
-	date.erase(date.begin(), it + 1);
-	for (it = date.begin(); *it != '-'; it++)
-		month += *it;
-	date.erase(date.begin(), it + 1);
-	for (it = date.begin(); it != date.end(); it++)
-		day += *it;
-
-	if ((std::stoi(year) < 2009 || std::stoi(year) > 2022) || (std::stoi(month) < 1 || std::stoi(month) > 12) || (std::stoi(day) < 1 || std::stoi(day) > 31))
-	{
-		std::cout << "Error: bad input => " << year << "-" << month << "-" << day << std::endl;
-		return (false);
-	}
-
-	return (true);
-}
-
-bool	isValueOk(float value)
-{
-	if (value < 0)
-	{
-		std::cout << "Error: not a positive number." << std::endl;
-		return (false);
-	}
-	if (value > 1000)
-	{
-		std::cout << "Error: too large a number." << std::endl;
-		return (false);
-	}
-	return (true);
-}
-
 std::map<std::string, float>	parseDatabase(std::string file) {
 
 	std::ifstream					ifs;
@@ -60,9 +14,8 @@ std::map<std::string, float>	parseDatabase(std::string file) {
 
 	for( std::string line; std::getline(ifs, line);)
 	{
-			key = line.substr(0, line.find(',', 0));
-			std::stringstream ss(line.substr(line.find(',', 0) + 1), line.find('\n', 0));
-			ss >> value;
+		key = line.substr(0, line.find(',', 0));
+		value = myStoi(line.substr(line.find(',', 0) + 1, line.find('\n', 0)));
 
 		if (key != "date" && isDateOk(key))
 			exchMap[key] = value;
@@ -144,8 +97,7 @@ void	getResult(std::map<std::string, float> exchMap, std::string file) {
 		date = line.substr(0, line.find('|', 0) - 1);
 		if (date != "date")
 		{
-			std::stringstream ss(line.substr(line.find('|', 0) + 2), line.find('\n', 0));
-			ss >> value;
+			value = myStoi(line.substr(line.find('|', 0) + 2, line.find('\n', 0)));
 			if (isValueOk(value) && isDateOk(date))
 			{
 				result = multiplyValues(date, value, exchMap);
