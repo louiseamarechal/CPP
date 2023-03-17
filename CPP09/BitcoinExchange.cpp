@@ -27,28 +27,45 @@ std::map<std::string, float>	parseDatabase(std::string file) {
 std::string	findLastAvailableRate(std::map<std::string, float> exchMap, std::string date) {
 
 	std::map<std::string, float>::iterator	it;
+	int										day = 0;
+	int										mapDay = 0;
 
 	for (it = exchMap.begin(); it != exchMap.end(); it++)
 	{
 		// std::cout << "it->first: " << it->first << " | date: " << date << std::endl;
 		// std::cout << "it->first.compare(0, 8, date, 0, 8) = " << it->first.compare(0, 8, date, 0, 8) << std::endl;
-		if (it->first.compare(0, 8, date, 0, 8) == 0)
+		while (it->first.compare(0, 8, date, 0, 8) == 0)
 		{
-			std::cout << "We Made it !!" << std::endl;
-			while (it->first.compare(date) != 0)
+			mapDay = myStoi(it->first.substr(8, 9));
+			day = myStoi(date.substr(8, 9));
+
+			if (day > mapDay && day > myStoi(it->first.substr(8, 9)))
+				continue;
+			else
 			{
-				if (date[9] <= '9')
-					date[9] -= 1;
-				if (date[9] == '0')
+				--it;
+				std::cout << "it->first = " << it->first << std::endl;
+				while (it->first.compare(date) != 0)
 				{
-					if (date[8] == '1')
+					if (date[9] <= '9')
+					{
+						// std::cout << "[findLastAvailableRate] - date[9] = " << date[9] << std::endl;
+						date[9] -= 1;
+						// std::cout << "[findLastAvailableRate] - date[9] -= 1 = " << date[9] << std::endl;
+					}
+					else if (date[9] == '0')
+					{
+						if (date[8] == '1')
 						date[8] = '0';
-					else
+						else
 						date[8] -= 1;
-					date[9] = '9';
+						date[9] = '9';
+					}
 				}
+				return (date);
 			}
-			return (date);
+			// std::cout << "Comparing : " << it->first << " and " << date << std::endl;
+			// // std::cout << "[findLastAvailableRate]: date -> " << date << std::endl;
 		}
 	}
 	return (date);
@@ -70,7 +87,7 @@ float	multiplyValues(std::string date, float bcValue, std::map<std::string, floa
 	{
 		if (it->first == date)
 		{
-			std::cout << "[multiplyValues] -> date: " << date << " | it->second: " << it->second << std::endl;
+			// std::cout << "[multiplyValues] -> date: " << date << " | it->second: " << it->second << std::endl;
 			return (bcValue * it->second);
 		}
 	}
