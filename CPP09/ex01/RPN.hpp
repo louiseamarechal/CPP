@@ -3,15 +3,19 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
+#include <queue>
 #include <sstream>
 
-std::std::vector<char>	parseArgument( std::string argument );
+std::queue<char>      	parseArgument( std::string argument );
 bool					argumentFormatOk( std::string argument );
 bool					isNumber( char c );
-bool					isOperand( char c );
+bool					isOperator( char c );
 bool					noConsecutiveDigit( std::string str );
 std::string				removeWhitespaces( std::string argument );
-int						showResult( std::vector<char> argumentList );
+void 					showResult( std::queue<char> argumentList );
+void	                emptyQueue( std::queue<int> * myQueue );
+int                     myCtoi(char c);
+void	                doTheMath( std::queue<int> * numbers, char operators );
+
 
 #endif

@@ -8,19 +8,15 @@ int	main( int argc, char ** argv ) {
 		return (1);
 	}
 
-	// std::cout << argumentFormatOk(argv[1]) << std::endl;
+	std::queue<char>	arguments = parseArgument(argv[1]);
 
-	std::vector<char>	argumentList = parseArgument(argv[1]);
-
-	if (argumentList.empty())
+	if (arguments.empty())
 	{
 		std::cout << "Error: Format not respected !" << std::endl;
 		return (1);
 	}
 
-	std::cout << "MY LIST: " << std::endl;
-	for (std::vector<char>::iterator it = argumentList.begin(); it != argumentList.end(); it++)
-		std::cout << *it << std::endl;
+	showResult(arguments);
 
 	return (0);
 }

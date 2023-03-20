@@ -1,6 +1,6 @@
 #include "RPN.hpp"
 
-bool isOperand( char c )
+bool isOperator( char c )
 {
 	if (c == '*' || c == '+' || c == '-' || c == '/')
 		return (true);
@@ -23,21 +23,21 @@ bool	noConsecutiveDigit( std::string str ) {
 	if (n == 0)
 		return false;
 
-	if (isOperand(str[0]))
+	if (isOperator(str[0]))
 		return false;
-	if (!isOperand(str[n - 1]))
+	if (!isOperator(str[n - 1]))
 		return false;
 
 	for (int i = 0; i < n; i++)
 	{
-		while (isNumber(str[i]))
+		if (isNumber(str[i]))
 		{
 			consecutiveDigits++;
 			consecutiveSymbols = 0;
-			if (consecutiveDigits > 2)
+			if (consecutiveDigits > 3)
 				return false;
 		}
-		else if (isOperand(str[i]))
+		else if (isOperator(str[i]))
 		{
 			consecutiveSymbols++;
 			consecutiveDigits = 0;
@@ -57,11 +57,9 @@ bool	argumentFormatOk( std::string str ) {
 
 	for (size_t i = 0; i < n; i++)
 	{
-		if (!isNumber(str[i]) && !isOperand(str[i]) && str[i] != 32)
+		if (!isNumber(str[i]) && !isOperator(str[i]) && str[i] != 32)
 			return (false);
 	}
-
-	std::cout << "removeWhitespaces(str) = " << removeWhitespaces(str) << std::endl;
 
 	if (!noConsecutiveDigit(removeWhitespaces(str)))
 		return (false);
@@ -85,94 +83,97 @@ std::string	removeWhitespaces( std::string argument ) {
 	return (argument);
 }
 
-std::vector<char>	parseArgument( std::string argument ) {
+std::queue<char>	parseArgument( std::string argument ) {
 
-	std::vector<char>		argumentList;
+	std::queue<char>		argumentQueue;
 	std::string::iterator	it;
 	std::string				noWhitespace;
 
 	if (argument.empty())
-		return (argumentList);
+		return (argumentQueue);
 
 	if (!argumentFormatOk(argument))
-		return (argumentList);
+		return (argumentQueue);
 
 	noWhitespace = removeWhitespaces(argument);
 
 	for (size_t i = 0; i < noWhitespace.size(); i++)
-		argumentList.push_back(noWhitespace[i]);
+		argumentQueue.push(noWhitespace[i]);
 
-	return (argumentList);
+	return (argumentQueue);
 }
 
-int	doTheMath( std::vector<int> numbers, std::vector<char> operands, int result ) {
+int    myCtoi(char c)
+{
+	return (c - '0');
+}
 
-	int	temp;
+void	doTheMath( std::queue<int> * numbers, char operators ) {
 
-	if (operands.size() == 2 && numbers.size() == 2)
+	int		result = 0;
+	int		temp;
+	std::queue<int>	total;
+
+	if (numbers->size() == 3)
 	{
-		if (operands[0] == '+')
-			temp = numbers[0] + numbers[1];
-		else if (operands[0] == '-')
-			temp = numbers[0] - numbers[1];
-		else if (operands[0] == '*')
-			temp = numbers[0] * numbers[1];
-		else if (operands[0] == '/')
-			temp = numbers[0] / numbers[1];
-
-		if (operands[1] == '+')
-			result += temp;
-		else if (operands[1] == '-')
-			result -= temp;
-		else if (operands[1] == '*')
-			result *= temp;
-		else if (operands[1] == '/')
-			result /= temp;
-		// result operands[1]= numbers[0] operands[0] numbers[1]
+		total.push(numbers->front());
+		numbers->pop();
 	}
 
-	if (operands[0] == '+')
-		result += temp;
-	else if (operands[0] == '-')
-		result -= temp;
-	else if (operands[0] == '*')
-		result *= temp;
-	else if (operands[0] == '/')
-		result /= temp;
+	temp = numbers->front();
+	numbers->pop();
 
-	return (result);
+	if (operators == '+')
+		result = temp + numbers->front();
+	else if (operators == '-')
+		result = temp - numbers->front();
+	else if (operators == '*')
+		result = temp * numbers->front();
+	else if (operators == '/')
+		result = temp / numbers->front();
+
+	numbers->pop();
+	
+	if (!total.empty())
+	{
+		numbers->push(total.front());
+		total.pop();
+	}
+	numbers->push(result);
 }
 
-void	showResult( std::vector<char> argumentList ) {
+void	emptyQueue( std::queue<int> * myQueue ) {
 
-	std::vector<int>	numbers;
-	std::vector<char>	operands;
+	size_t	size = myQueue->size();
+	for (size_t i = 0; i < size; i++)
+		myQueue->pop();
+}
 
-	for (size_t i = 0; i < argumentList.size(); i++)
+void	showResult( std::queue<char> argumentQueue ) {
+
+	std::queue<int>	numbers;
+	size_t	argumenSize = argumentQueue.size();
+
+	for (size_t i = 0; i < argumenSize; i++)
 	{
-		while (isNumber(argumentList[i]))
+		while (isNumber(argumentQueue.front()))
 		{
-			numbers.push_back(argumentList[i]);
-			i++;
+			numbers.push(myCtoi(argumentQueue.front()));
+			argumentQueue.pop();
 		}
-		while (isOperand(argumentList[i]))
+
+		if (isOperator(argumentQueue.front()))
 		{
-			operands.push_back(argumentList[i]);
-			i++;
+			if (numbers.size() <= 1)
+			{
+				std::cout << "Error: Format not respected !" << std::endl;
+				return;
+			}
+			doTheMath(&numbers, argumentQueue.front());
+			argumentQueue.pop();
 		}
-		if (numbers.size() == 2 && operands.size() != 2)
-			return (NULL);
-		result = doTheMath(numbers, operands, result);
+
 	}
 
-	return (result);
+	std::cout << numbers.front() << std::endl;
 }
-
-// 1. Parser la suite numerique envoyee en argument
-//		- format has to be betzeen " "
-//		- check that values are numbers < 10 or + - / *
-//		- you cannot have more than 2 consecutives numbers
-
-// 2. Add numbers as char in the list
-
-// 3. Iterate through the list and do the maths !

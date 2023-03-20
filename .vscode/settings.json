@@ -52,7 +52,10 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "*.tpp": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "map": "cpp",
+        "span": "cpp",
+        "queue": "cpp"
     },
     "workbench.colorTheme": "Kimbie Dark",
     "workbench.preferredLightColorTheme": "Default Dark+",
