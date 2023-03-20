@@ -174,6 +174,10 @@ void	showResult( std::queue<char> argumentQueue ) {
 		}
 
 	}
-
+	if (numbers.size() > 1)
+	{
+		std::cout << "Error: Format not respected !" << std::endl;
+		return;
+	}
 	std::cout << numbers.front() << std::endl;
 }
