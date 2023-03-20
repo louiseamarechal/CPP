@@ -7,7 +7,7 @@ std::map<std::string, float>	parseDatabase(std::string file) {
 	std::string						key;
 	float 							value;
 
-	ifs.open(file, std::ifstream::in);
+	ifs.open(file.c_str(), std::ifstream::in);
 
 	if (!ifs.is_open())
 		return (exchMap);
@@ -91,7 +91,7 @@ void	getResult(std::map<std::string, float> exchMap, std::string file) {
 	std::string		date;
 	float			result;
 
-	ifs.open(file, std::ifstream::in);
+	ifs.open(file.c_str(), std::ifstream::in);
 
 	if (!ifs.is_open())
 	{
