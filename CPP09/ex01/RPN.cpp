@@ -1,54 +1,20 @@
 #include "RPN.hpp"
 
-bool isOperator( char c )
+static bool isOperator( char c )
 {
 	if (c == '*' || c == '+' || c == '-' || c == '/')
 		return (true);
 	return (false);
 }
 
-bool	isNumber( char c )
+static bool	isNumber( char c )
 {
 	if (c >= '0' && c <= '9')
 		return (true);
 	return (false);
 }
 
-bool	noConsecutiveDigit( std::string str ) {
-
-	int n = str.size();
-	int consecutiveDigits = 0;
-	int consecutiveSymbols = 0;
-
-	if (n == 0)
-		return false;
-
-	if (isOperator(str[0]))
-		return false;
-	if (!isOperator(str[n - 1]))
-		return false;
-
-	for (int i = 0; i < n; i++)
-	{
-		if (isNumber(str[i]))
-		{
-			consecutiveDigits++;
-			consecutiveSymbols = 0;
-			if (consecutiveDigits > 3)
-				return false;
-		}
-		else if (isOperator(str[i]))
-		{
-			consecutiveSymbols++;
-			consecutiveDigits = 0;
-			if (consecutiveSymbols > 2)
-				return false;
-		}
-	}
-	return true;
-}
-
-bool	argumentFormatOk( std::string str ) {
+static bool	argumentFormatOk( std::string str ) {
 
 	size_t		n = str.size();
 
@@ -61,13 +27,10 @@ bool	argumentFormatOk( std::string str ) {
 			return (false);
 	}
 
-	if (!noConsecutiveDigit(removeWhitespaces(str)))
-		return (false);
-
 	return (true);
 }
 
-std::string	removeWhitespaces( std::string argument ) {
+static std::string	removeWhitespaces( std::string argument ) {
 
 	std::string::iterator	it;
 
@@ -83,101 +46,66 @@ std::string	removeWhitespaces( std::string argument ) {
 	return (argument);
 }
 
-std::queue<char>	parseArgument( std::string argument ) {
-
-	std::queue<char>		argumentQueue;
-	std::string::iterator	it;
-	std::string				noWhitespace;
-
-	if (argument.empty())
-		return (argumentQueue);
-
-	if (!argumentFormatOk(argument))
-		return (argumentQueue);
-
-	noWhitespace = removeWhitespaces(argument);
-
-	for (size_t i = 0; i < noWhitespace.size(); i++)
-		argumentQueue.push(noWhitespace[i]);
-
-	return (argumentQueue);
-}
-
-int    myCtoi(char c)
+static int    myCtoi(char c)
 {
 	return (c - '0');
 }
 
-void	doTheMath( std::queue<int> * numbers, char operators ) {
+static void	doTheMath( std::stack<int> & numbers, char operators ) {
 
 	int		result = 0;
 	int		temp;
-	std::queue<int>	total;
 
-	if (numbers->size() == 3)
-	{
-		total.push(numbers->front());
-		numbers->pop();
-	}
-
-	temp = numbers->front();
-	numbers->pop();
+	temp = numbers.top();
+	numbers.pop();
 
 	if (operators == '+')
-		result = temp + numbers->front();
+		result = numbers.top() + temp;
 	else if (operators == '-')
-		result = temp - numbers->front();
+		result = numbers.top() - temp;
 	else if (operators == '*')
-		result = temp * numbers->front();
+		result = numbers.top() * temp;
 	else if (operators == '/')
-		result = temp / numbers->front();
+		result = numbers.top() / temp;
 
-	numbers->pop();
+	numbers.pop();
 	
-	if (!total.empty())
+	numbers.push(result);
+}
+
+void	reversPolishNotationCalculation( std::string argument ) {
+
+	std::stack<int>			numbers;
+	std::string::iterator	it;
+	std::string				noWhitespace;
+
+	if (argument.empty() || !argumentFormatOk(argument))
 	{
-		numbers->push(total.front());
-		total.pop();
+		std::cout << "Error: Format not respected !" << std::endl;
+		return;
 	}
-	numbers->push(result);
-}
 
-void	emptyQueue( std::queue<int> * myQueue ) {
+	noWhitespace = removeWhitespaces(argument);
 
-	size_t	size = myQueue->size();
-	for (size_t i = 0; i < size; i++)
-		myQueue->pop();
-}
-
-void	showResult( std::queue<char> argumentQueue ) {
-
-	std::queue<int>	numbers;
-	size_t	argumenSize = argumentQueue.size();
-
-	for (size_t i = 0; i < argumenSize; i++)
+	for (size_t i = 0; i <= noWhitespace.size(); i++)
 	{
-		while (isNumber(argumentQueue.front()))
+		for (; isNumber(noWhitespace[i]); i++)
+			numbers.push(myCtoi(noWhitespace[i]));
+		if (isOperator(noWhitespace[i]))
 		{
-			numbers.push(myCtoi(argumentQueue.front()));
-			argumentQueue.pop();
-		}
-
-		if (isOperator(argumentQueue.front()))
-		{
-			if (numbers.size() <= 1)
+			if (numbers.size() < 2)
 			{
 				std::cout << "Error: Format not respected !" << std::endl;
 				return;
 			}
-			doTheMath(&numbers, argumentQueue.front());
-			argumentQueue.pop();
+			doTheMath(numbers, noWhitespace[i]);
 		}
-
 	}
+
 	if (numbers.size() > 1)
 	{
 		std::cout << "Error: Format not respected !" << std::endl;
 		return;
 	}
-	std::cout << numbers.front() << std::endl;
+	std::cout << numbers.top() << std::endl;
 }

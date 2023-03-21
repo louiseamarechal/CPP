@@ -8,15 +8,7 @@ int	main( int argc, char ** argv ) {
 		return (1);
 	}
 
-	std::queue<char>	arguments = parseArgument(argv[1]);
-
-	if (arguments.empty())
-	{
-		std::cout << "Error: Format not respected !" << std::endl;
-		return (1);
-	}
-
-	showResult(arguments);
+	reversPolishNotationCalculation(argv[1]);
 
 	return (0);
 }
