@@ -7,9 +7,9 @@
 #include <string>
 #include <sstream>
 
-std::string                     removeWhitespaces( std::string argument );
+std::string                     removeConsecutiveWhitespace( std::string buffer );
 int                             myStoi( std::string number );
 std::vector<int>                parseArgsToVector( std::string argument );
-std::vector<std::vector<int> >   splitVectorInPairs( std::vector<int> unsortedInts );
-
+// std::vector<std::list<int> >    splitVectorInPairs( std::vector<int> unsortedInts );
+void                            mergeInsert( std::vector<int> unsortedInts, size_t frontIndex, size_t backIndex );
 #endif

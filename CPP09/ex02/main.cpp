@@ -13,25 +13,36 @@ int main( int argc, char **argv ) {
     for (int i = 1; i < argc; i++)
         argument += argv[i];
 
-    std::cout << "Unsorted argument = " << argument << std::endl;
     // argument = removeWhitespaces(argument);
 
-    std::vector<int>    unsortedList = parseArgsToVector(argument);
+    std::vector<int>    unsortedVector = parseArgsToVector(argument);
 
-    if (unsortedList.empty())
+    if (unsortedVector.empty())
     {
         std::cout << "Error: not enough parameters !" << std::endl;
         return (1);
     }
 
+    std::cout << "Unsorted argument = " << std::endl;
+    for (size_t i = 0; i < unsortedVector.size(); i++)
+        std::cout << unsortedVector[i] << " ";
 
-    std::vector<std::vector<int> > splittedVector = splitVectorInPairs(unsortedList);
+    mergeInsert(unsortedVector, 0, unsortedVector.size() - 1);
 
-    for (size_t i = 0; i < splittedVector.size(); i++)
-    {
-        for  (size_t j = 0; j < splittedVector[i].size(); j++)
-            std::cout << unsortedList[j] << " ";
-        std::cout << std::endl;
-    }
+    // std::cout << std::endl;
+
+    // std::vector<std::list<int> > splittedList = splitVectorInPairs(unsortedVector);
+
+    // // for (size_t i = 0; i < splittedList.size(); i++)
+    // // {
+    // //     while (!splittedList[i].empty())
+    // //     {
+    // //         std::cout << splittedList[i].front() << " ";
+    // //         splittedList[i].pop_front();
+    // //     }
+    // //     std::cout << std::endl;
+    // // }
+
+    // mergeInsert(splittedList);
 
 }
