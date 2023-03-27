@@ -47,7 +47,7 @@ std::vector<int>    parseArgsToVector( std::string argument ) {
         return (unsortedInts);
 
     cleanArgs = removeConsecutiveWhitespace(argument);
-    std::cout << "cleanArgs = " << cleanArgs << std::endl;
+    // std::cout << "cleanArgs = " << cleanArgs << std::endl;
     
     while (!cleanArgs.empty())
     {
@@ -73,19 +73,82 @@ void    merge(  std::vector<int> & unsortedInts, size_t frontIndex, size_t midIn
     std::vector<int>    two;
     size_t              i;
     size_t              j;
+    int                 temp;
 
 
-    for (i = 0; i < midIndex - frontIndex + 1; i++)
-        one.push_back(unsortedInts[i]);
+    for (i = 0; i < ((midIndex - frontIndex) + 1); i++)
+        one.push_back(unsortedInts[frontIndex + i]);
 
     for (j = 0; j < backIndex - midIndex; j++)
-        two.push_back(unsortedInts[i + j]);
+        two.push_back(unsortedInts[midIndex + 1 + j]);
 
-    for (size_t x = 0; x < one.size(); x++)
-        std::cout << two[x] << std::endl;
+    for (size_t x = 0; x < ((midIndex - frontIndex) + 1); x++)
+    {
+        if (((midIndex - frontIndex) + 1) > 1)
+        {
+            for (size_t y = x + 1; y < ((midIndex - frontIndex) + 1); y++)
+            {
+                // std::cout << "one[" << x << "] = " << one[x] << " == " << "unsortedInts[" << frontIndex + x << "] = " << unsortedInts[frontIndex + x] << std::endl;
+                // std::cout << "one[" << y << "] = " << one[y] << " == " << "unsortedInts[" << frontIndex + y << "] = " << unsortedInts[frontIndex + y] << std::endl;
+                if (unsortedInts[frontIndex + y] < unsortedInts[frontIndex + x])
+                {
+                    temp = unsortedInts[frontIndex + y];
+                    unsortedInts[frontIndex + y] = unsortedInts[frontIndex + x];
+                    unsortedInts[frontIndex + x] = temp;
+                }
+            }
+        }
+    }
+
+    // for (size_t x = 0; x < one.size(); x++)
+    //     std::cout << "one[" << x << "] = " << one[x] << std::endl;
     
-    for (size_t x = 0; x < one.size(); x++)
-        std::cout << two[x] << std::endl;
+    // for (size_t x = 0; x < two.size(); x++)
+    //     std::cout << "two[" << x << "] = "<< two[x] << std::endl;
+    
+    for (size_t x = 0; x < (backIndex - midIndex); x++)
+    {
+        if ((backIndex - midIndex) > 1)
+        {
+            for (size_t y = x + 1; y < (backIndex - midIndex); y++)
+            {
+                // std::cout << "two[" << x << "] = " << two[x] << " == " << "unsortedInts[" << midIndex + 1 + x << "] = " << unsortedInts[midIndex + 1 + x] << std::endl;
+                // std::cout << "two[" << y << "] = " << two[y] << " == " << "unsortedInts[" << midIndex + 1 + y << "] = " << unsortedInts[midIndex + 1 + y] << std::endl;
+                if (unsortedInts[midIndex + 1 + y] < unsortedInts[midIndex + 1 + x])
+                {
+                    temp = unsortedInts[midIndex + 1 + y];
+                    unsortedInts[midIndex + 1 + y] = unsortedInts[midIndex + 1 + x];
+                    unsortedInts[midIndex + 1 + x] = temp;
+                }
+            }
+        }
+    }
+
+    for (size_t x = 0; x < backIndex; x++)
+    {
+        std::cout << "x = " << x << std::endl;
+        std::cout << "backIndex = " << backIndex << std::endl;
+        for (size_t y = 0; y < (backIndex - midIndex); y++)
+        {
+            std::cout << "unsortedInts[" << midIndex + 1 + y << "] = " << unsortedInts[midIndex + 1 + y] << "?<" << "unsortedInts[" << frontIndex + x << "] = " << unsortedInts[frontIndex + x] << std::endl;
+            if (unsortedInts[midIndex + 1 + y] < unsortedInts[frontIndex + x])
+            {
+                temp = unsortedInts[midIndex + 1 + y];
+                // std::cout << unsortedInts[midIndex + 1 + y] << " = " << unsortedInts[frontIndex + x] << std::endl;
+                unsortedInts[midIndex + 1 + y] = unsortedInts[frontIndex + x];
+                // std::cout << unsortedInts[frontIndex + x] << " = " << temp << std::endl;
+                unsortedInts[frontIndex + x] = temp;
+            }
+        }
+    }
+
+    for (size_t x = 0; x < unsortedInts.size(); x++)
+        std::cout << unsortedInts[x] << std::endl;
+    // for (size_t x = 0; x < two.size(); x++)
+    //     std::cout << "two[" << x << "] = "<< two[x] << std::endl;
+
+
+    std::cout << std::endl;
 }
 
 void    mergeInsert( std::vector<int> unsortedInts, size_t frontIndex, size_t backIndex ) {

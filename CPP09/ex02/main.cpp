@@ -23,7 +23,7 @@ int main( int argc, char **argv ) {
         return (1);
     }
 
-    std::cout << "Unsorted argument = " << std::endl;
+    std::cout << "Unsorted argument = ";
     for (size_t i = 0; i < unsortedVector.size(); i++)
         std::cout << unsortedVector[i] << " ";
 
