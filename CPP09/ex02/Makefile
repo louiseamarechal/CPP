@@ -21,7 +21,7 @@ clean :
 fclean : clean
 	/bin/rm -f $(NAME)
 
-%.o:%.cpp
+%.o:%.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 re: fclean all

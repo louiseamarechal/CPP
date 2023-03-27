@@ -16,6 +16,7 @@ int main( int argc, char **argv ) {
     // argument = removeWhitespaces(argument);
 
     std::vector<int>    unsortedVector = parseArgsToVector(argument);
+    std::list<int>      unsortedList = parseArgsToList(argument);
 
     if (unsortedVector.empty())
     {
@@ -23,26 +24,29 @@ int main( int argc, char **argv ) {
         return (1);
     }
 
-    std::cout << "Unsorted argument = ";
+    std::cout << "Before: ";
     for (size_t i = 0; i < unsortedVector.size(); i++)
         std::cout << unsortedVector[i] << " ";
 
-    mergeInsert(unsortedVector, 0, unsortedVector.size() - 1);
+    std::cout << std::endl;
+    unsortedVector.reserve(unsortedVector.capacity() + 1);
+    mergeInsertVector(unsortedVector, 0, unsortedVector.size() - 1);
 
-    // std::cout << std::endl;
+    std::cout << "After: ";
+    for (size_t i = 0; i < unsortedVector.size(); i++)
+        std::cout << unsortedVector[i] << " ";
 
-    // std::vector<std::list<int> > splittedList = splitVectorInPairs(unsortedVector);
+    std::cout << std::endl;
+    std::cout << std::endl;
 
-    // // for (size_t i = 0; i < splittedList.size(); i++)
-    // // {
-    // //     while (!splittedList[i].empty())
-    // //     {
-    // //         std::cout << splittedList[i].front() << " ";
-    // //         splittedList[i].pop_front();
-    // //     }
-    // //     std::cout << std::endl;
-    // // }
+    std::cout << "Before: ";
+    for (std::list<int>::iterator it = unsortedList.begin(); it != unsortedList.end(); it++)
+        std::cout << *it << " ";
 
-    // mergeInsert(splittedList);
+    std::cout << std::endl;
+    
+    mergeInsertList(unsortedList, 0, unsortedList.size() - 1);
+
+    std::cout << std::endl;
 
 }

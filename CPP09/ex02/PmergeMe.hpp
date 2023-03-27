@@ -10,6 +10,7 @@
 std::string                     removeConsecutiveWhitespace( std::string buffer );
 int                             myStoi( std::string number );
 std::vector<int>                parseArgsToVector( std::string argument );
-// std::vector<std::list<int> >    splitVectorInPairs( std::vector<int> unsortedInts );
-void                            mergeInsert( std::vector<int> unsortedInts, size_t frontIndex, size_t backIndex );
+std::list<int>                  parseArgsToList( std::string argument );
+void                            mergeInsertVector( std::vector<int>& unsortedInts, size_t frontIndex, size_t backIndex );
+void                            mergeInsertList( std::list<int>& unsortedInts, size_t frontIndex, size_t backIndex );
 #endif
