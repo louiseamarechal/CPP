@@ -41,14 +41,12 @@ int main( int argc, char **argv ) {
 
     std::cout << "Before: ";
     for (std::list<int>::iterator it = unsortedList.begin(); it != unsortedList.end(); it++)
-        std::cout << *it << " "; 
+        std::cout << *it << " ";
+
     std::cout << std::endl;
     
     mergeInsertList(unsortedList, 0, unsortedList.size() - 1);
 
-    std::cout << "After: ";
-    for (std::list<int>::iterator it = unsortedList.begin(); it != unsortedList.end(); it++)
-        std::cout << *it << " ";
     std::cout << std::endl;
 
 }

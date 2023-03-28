@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <iterator>
 
 std::string                     removeConsecutiveWhitespace( std::string buffer );
 int                             myStoi( std::string number );
