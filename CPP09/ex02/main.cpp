@@ -13,8 +13,6 @@ int main( int argc, char **argv ) {
     for (int i = 1; i < argc; i++)
         argument += argv[i];
 
-    // argument = removeWhitespaces(argument);
-
     std::vector<int>    unsortedVector = parseArgsToVector(argument);
     std::list<int>      unsortedList = parseArgsToList(argument);
 

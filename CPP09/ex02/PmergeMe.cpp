@@ -62,43 +62,34 @@ std::vector<int>    parseArgsToVector( std::string argument ) {
     return (unsortedInts);
 }
 
-void    mergeVector( std::vector<int> & unsortedInts, size_t frontIndex, size_t midIndex, size_t backIndex ) {
+void    sortVector( std::vector<int> & unsortedInts,size_t index, size_t size ) {
 
-    size_t              oneSize = (midIndex - frontIndex) + 1;
-    size_t              twoSize = backIndex - midIndex;
     int                 temp;
 
-    for (size_t x = 0; x < oneSize; x++)
+    for (size_t x = 0; x < size; x++)
     {
-        if (oneSize > 1)
+        if (size > 1)
         {
-            for (size_t y = x + 1; y < oneSize; y++)
+            for (size_t y = x + 1; y < size; y++)
             {
-                if (unsortedInts[frontIndex + y] < unsortedInts[frontIndex + x])
+                if (unsortedInts[index + y] < unsortedInts[index + x])
                 {
-                    temp = unsortedInts[frontIndex + y];
-                    unsortedInts[frontIndex + y] = unsortedInts[frontIndex + x];
-                    unsortedInts[frontIndex + x] = temp;
+                    temp = unsortedInts[index + y];
+                    unsortedInts[index + y] = unsortedInts[index + x];
+                    unsortedInts[index + x] = temp;
                 }
             }
         }
     }
-    
-    for (size_t x = 0; x < twoSize; x++)
-    {
-        if (twoSize > 1)
-        {
-            for (size_t y = x + 1; y < twoSize; y++)
-            {
-                if (unsortedInts[midIndex + 1 + y] < unsortedInts[midIndex + 1 + x])
-                {
-                    temp = unsortedInts[midIndex + 1 + y];
-                    unsortedInts[midIndex + 1 + y] = unsortedInts[midIndex + 1 + x];
-                    unsortedInts[midIndex + 1 + x] = temp;
-                }
-            }
-        }
-    }
+}
+
+void    mergeVector( std::vector<int> & unsortedInts, size_t frontIndex, size_t midIndex, size_t backIndex ) {
+
+    size_t  oneSize = (midIndex - frontIndex) + 1;
+    size_t  twoSize = backIndex - midIndex;
+
+    sortVector(unsortedInts, frontIndex, oneSize);
+    sortVector(unsortedInts, midIndex + 1, twoSize);
 
     std::vector<int>::iterator  vec = unsortedInts.begin() + frontIndex;
     std::vector<int>::iterator  insert = unsortedInts.begin() + midIndex + 1;
@@ -158,77 +149,40 @@ std::list<int>    parseArgsToList( std::string argument ) {
 
 }
 
+void    sortList( std::list<int> & unsortedInts, size_t index, size_t size ) {
+
+    std::list<int>::iterator    it = unsortedInts.begin();
+    std::list<int>::iterator    itNext = unsortedInts.begin();
+    int                         temp;
+
+    std::advance(it, index);
+    std::advance(itNext, index + 1);
+
+
+    if (size <= 1)
+        return;
+    for (size_t x = 0; x < size; x++)
+    {
+        for (size_t y = x + 1; y < size; y++)
+        {
+            if (*itNext < *it)
+            {
+                temp = *itNext;
+                *itNext = *it;
+                *it = temp;
+            }
+            itNext++;
+        }
+    }
+}
+
 void    mergeList( std::list<int> & unsortedInts, size_t frontIndex, size_t midIndex, size_t backIndex ) {
 
-    size_t                      oneSize = (midIndex - frontIndex) + 1;
-    size_t                      twoSize = backIndex - midIndex;
-    std::list<int>::iterator    it = unsortedInts.begin();
-    std::vector<int>              vecOne;
-    std::vector<int>              vecTwo;
-    int                         temp;
-    size_t                      x;
-    size_t                      y;
+    size_t  oneSize = (midIndex - frontIndex) + 1;
+    size_t  twoSize = backIndex - midIndex;
 
-    for ( x = 0; x < oneSize; x++)
-    {
-        vecOne.push_back(*it);
-        it++;
-    }
-
-    for (y = 0; y < twoSize; y++)
-    {
-        vecTwo.push_back(*it);
-        it++;
-    }
-
-    for (x = 0; x < oneSize; x++)
-    {
-        if (oneSize > 1)
-        {
-            for (y = x + 1; y < oneSize; y++)
-            {
-                if (vecOne[x] > vecOne[y])
-                {
-                    temp = vecOne[y];
-                    vecOne[y] = vecOne[x];
-                    vecOne[x] = temp;
-                }
-            }
-        }
-    }
-
-    for (x = 0; x < twoSize; x++)
-    {
-        if (twoSize > 1)
-        {
-            for (y = x + 1; y < twoSize; y++)
-            {
-                if (vecTwo[x] > vecTwo[y])
-                {
-                    temp = vecTwo[y];
-                    vecTwo[y] = vecTwo[x];
-                    vecTwo[x] = temp;
-                }
-            }
-        }
-    }
-
-    if (oneSize > 1 && twoSize > 1)
-    {
-        for (x = 0; x < (oneSize + twoSize); x++)
-            unsortedInts.pop_front();
-        for (int j = twoSize - 1; j >= 0; j--)
-            unsortedInts.push_front(vecTwo[j]);
-        for (int j = oneSize - 1; j >= 0; j--)
-            unsortedInts.push_front(vecOne[j]);
-    }
-    else if (oneSize > 1 && twoSize < 2)
-    {
-        for (x = 0; x < oneSize; x++)
-            unsortedInts.pop_front();
-        for (int j = oneSize - 1; j >= 0; j--)
-            unsortedInts.push_front(vecOne[j]);
-    }
+    sortList(unsortedInts, frontIndex, oneSize);
+    sortList(unsortedInts, midIndex + 1, twoSize);
 
     std::list<int>::iterator  list = unsortedInts.begin();
     std::list<int>::iterator  insert = unsortedInts.begin();
