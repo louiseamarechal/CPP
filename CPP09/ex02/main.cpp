@@ -39,7 +39,7 @@ int main( int argc, char **argv ) {
         std::cout << unsortedVector[i] << " ";
 
     std::cout << std::endl;
-    std::cout << "Time to process a range of " << unsortedVector.size() << " elements with std::vector : " << t << " seconds" << std::endl;
+    std::cout << "Time to process a range of " << unsortedVector.size() << " elements with std::vector : 0." << t << " seconds" << std::endl;
     std::cout << std::endl;
 
     std::cout << "Before: ";
@@ -55,7 +55,7 @@ int main( int argc, char **argv ) {
     for (std::list<int>::iterator it = unsortedList.begin(); it != unsortedList.end(); it++)
         std::cout << *it << " ";
     std::cout << std::endl;
-    std::cout << "Time to process a range of " << unsortedList.size() << " elements with std::list : " << t << " seconds" << std::endl;
+    std::cout << "Time to process a range of " << unsortedList.size() << " elements with std::list : 0." << t << " seconds" << std::endl;
     std::cout << std::endl;
 
 }
