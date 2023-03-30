@@ -1,5 +1,15 @@
 #include "PmergeMe.hpp"
 
+bool    formatOk( std::string str ) {
+
+    for (size_t i = 0; i < str.size(); i++)
+    {
+        if (!(str[i] >= '0' && str[i] <= '9') && !(str[i] == 32))
+    		return (false);
+    }
+	return (true);
+}
+
 std::string removeConsecutiveWhitespace( std::string buffer ) {
 
     char                    whitespace = 32;

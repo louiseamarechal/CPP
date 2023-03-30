@@ -12,7 +12,14 @@ int main( int argc, char **argv ) {
     clock_t             t;
 
     for (int i = 1; i < argc; i++)
+    {
+        if (!formatOk(argv[i]))
+        {
+            std::cout << "Error: format not respected !" << std::endl;
+            return (1);
+        }
         argument += argv[i];
+    }
 
     std::vector<int>    unsortedVector = parseArgsToVector(argument);
     std::list<int>      unsortedList = parseArgsToList(argument);
