@@ -159,23 +159,45 @@ std::list<int>    parseArgsToList( std::string argument ) {
 
 }
 
-void    sortList( std::list<int> & unsortedInts, size_t index, size_t size ) {
+void    sortList( std::list<int> & unsortedInts, size_t frontIndex, size_t midIndex, size_t backIndex ) {
 
+    size_t                      oneSize = (midIndex - frontIndex) + 1;
+    size_t                      twoSize = backIndex - midIndex;
     std::list<int>::iterator    it = unsortedInts.begin();
     std::list<int>::iterator    itNext = unsortedInts.begin();
     int                         temp;
 
-    std::advance(it, index);
-    std::advance(itNext, index + 1);
-
-
-    if (size <= 1)
-        return;
-    for (size_t x = 0; x < size; x++)
+    for (size_t x = 0; x < oneSize; x++)
     {
-        for (size_t y = x + 1; y < size; y++)
+        it = unsortedInts.begin();
+        itNext = unsortedInts.begin();
+        std::advance(it, frontIndex + x);
+        std::advance(itNext, frontIndex + x + 1);
+        if (oneSize <= 1)
+            break;
+        for (size_t y = x + 1; y < oneSize; y++)
         {
-            if (*itNext < *it)
+            if (*it > *itNext)
+            {
+                temp = *itNext;
+                *itNext = *it;
+                *it = temp;
+            }
+            itNext++;
+        }
+    }
+
+    for (size_t x = 0; x < twoSize; x++)
+    {
+        it = unsortedInts.begin();
+        itNext = unsortedInts.begin();
+        std::advance(it, midIndex + 1 + x);
+        std::advance(itNext, midIndex + 2 + x);
+        if (twoSize <= 1)
+            break;
+        for (size_t y = x + 1; y < twoSize; y++)
+        {
+            if (*it > *itNext)
             {
                 temp = *itNext;
                 *itNext = *it;
@@ -188,11 +210,7 @@ void    sortList( std::list<int> & unsortedInts, size_t index, size_t size ) {
 
 void    mergeList( std::list<int> & unsortedInts, size_t frontIndex, size_t midIndex, size_t backIndex ) {
 
-    size_t  oneSize = (midIndex - frontIndex) + 1;
-    size_t  twoSize = backIndex - midIndex;
-
-    sortList(unsortedInts, frontIndex, oneSize);
-    sortList(unsortedInts, midIndex + 1, twoSize);
+    sortList(unsortedInts, frontIndex, midIndex, backIndex);
 
     std::list<int>::iterator  list = unsortedInts.begin();
     std::list<int>::iterator  insert = unsortedInts.begin();
@@ -219,7 +237,7 @@ void    mergeList( std::list<int> & unsortedInts, size_t frontIndex, size_t midI
 void    mergeInsertList( std::list<int>& unsortedInts, size_t frontIndex, size_t backIndex ) {
     
     if (frontIndex >= backIndex)
-        return; // Returns recursivly
+        return;
 
     size_t midIndex = frontIndex + (backIndex - frontIndex) / 2;
 
