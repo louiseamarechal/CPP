@@ -44,7 +44,7 @@ std::string	findLastAvailableRate(std::map<std::string, float> exchMap, std::str
 				--it;
 				while (it->first.compare(date) != 0)
 				{
-					if (date[9] <= '9')
+					if (date[9] <= '9' && date[9] > '0')
 						date[9] -= 1;
 					else if (date[9] == '0')
 					{
