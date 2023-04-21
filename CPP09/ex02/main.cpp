@@ -11,8 +11,15 @@ int main( int argc, char **argv ) {
     std::string         argument;
     clock_t             t;
 
+    if (argc != 2)
+    {
+        std::cout << "Error: format not respected !" << std::endl;
+        return (1);
+    }
+
     for (int i = 1; i < argc; i++)
     {
+        // std::cout << "argv[i] = " << argv[i] << std::endl;
         if (!formatOk(argv[i]))
         {
             std::cout << "Error: format not respected !" << std::endl;
