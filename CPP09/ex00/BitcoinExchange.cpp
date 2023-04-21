@@ -49,9 +49,9 @@ std::string	findLastAvailableRate(std::map<std::string, float> exchMap, std::str
 					else if (date[9] == '0')
 					{
 						if (date[8] == '1')
-						date[8] = '0';
+							date[8] = '0';
 						else
-						date[8] -= 1;
+							date[8] -= 1;
 						date[9] = '9';
 					}
 				}
