@@ -1,16 +1,18 @@
-NAME = RPN
+NAME = btc
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 ifeq ($(DEBUG), 1)
 	CXXFLAGS += -g
 endif
 
 SRC =	main.cpp \
-		RPN.cpp
+		BitcoinExchange.cpp \
+		utils.cpp
 
-HEADERS =	RPN.hpp
+HEADERS =	BitcoinExchange.hpp \
+			utils.hpp
 
 OBJ = $(SRC:.cpp=.o)
 

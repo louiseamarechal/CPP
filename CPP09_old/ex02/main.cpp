@@ -10,21 +10,22 @@ int main( int argc, char **argv ) {
 
     std::string         argument;
     clock_t             t;
-    std::string         str;
+
+    if (argc != 2)
+    {
+        std::cout << "Error: format not respected !" << std::endl;
+        return (1);
+    }
 
     for (int i = 1; i < argc; i++)
     {
+        // std::cout << "argv[i] = " << argv[i] << std::endl;
         if (!formatOk(argv[i]))
         {
             std::cout << "Error: format not respected !" << std::endl;
             return (1);
         }
-        std::string str = argv[i];
-        for (size_t j = 0; j < str.size(); j++)
-            argument += str[j];
-
-        argument += " ";
-        // std::cout << argument << std::endl;
+        argument += argv[i];
     }
 
     std::vector<int>    unsortedVector = parseArgsToVector(argument);

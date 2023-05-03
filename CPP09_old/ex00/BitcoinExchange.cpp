@@ -21,8 +21,6 @@ std::map<std::string, float>	parseDatabase(std::string file) {
 			exchMap[key] = value;
 	}
 
-	ifs.close();
-
 	return (exchMap);
 }
 
@@ -114,7 +112,7 @@ void	getResult(std::map<std::string, float> exchMap, std::string file) {
 			}
 		}
 	}
-	ifs.close();
+
 }
 
 // 1. Parse the Exchange Rate file

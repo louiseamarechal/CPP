@@ -1,0 +1,19 @@
+#ifndef BITCOINEXCHANGE_HPP
+# define BITCOINEXCHANGE_HPP
+
+#include <fstream>
+#include <map>
+#include <string>
+#include <cfloat>
+#include <iostream>
+#include <sstream>
+#include "utils.hpp"
+
+std::map<std::string, float>	parseDatabase(std::string file);
+bool							isDateOk(std::string date);
+bool							isValueOk(float value);
+float							multiplyValues(std::string date, float bcValue, std::map<std::string, float> exchMap);
+void							getResult(std::map<std::string, float> exchMap, std::string file);
+std::string						findLastAvailableRate(std::map<std::string, float> exchMap, std::string date);
+
+#endif

@@ -51,22 +51,6 @@ static int    myCtoi(char c)
 	return (c - '0');
 }
 
-static bool	isTryingToDivideBy0( std::stack<int> numbers, char operators ) {
-
-	int		temp;
-
-	temp = numbers.top();
-	numbers.pop();
-
-	if (operators == '/')
-	{
-		if (temp == 0 || numbers.top() == 0)
-			return (true);
-	}
-
-	return (false);
-}
-
 static void	doTheMath( std::stack<int> & numbers, char operators ) {
 
 	int		result = 0;
@@ -112,11 +96,6 @@ void	reversPolishNotationCalculation( std::string argument ) {
 			if (numbers.size() < 2)
 			{
 				std::cout << "Error: Format not respected !" << std::endl;
-				return;
-			}
-			if (isTryingToDivideBy0(numbers, noWhitespace[i]))
-			{
-				std::cout << "Error: Cannot divide by 0";
 				return;
 			}
 			doTheMath(numbers, noWhitespace[i]);
